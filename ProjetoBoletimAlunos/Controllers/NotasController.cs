@@ -8,42 +8,39 @@ using System.Linq;
 namespace ProjetoBoletimAlunos.Controllers
 {
     [ApiController]
-    [Route("Aluno")]
-    public class AlunoController : ControllerBase
+    [Route("Notas")]
+    public class NotasController : ControllerBase
     {
-      
         [HttpGet]
-        [Route("GetAluno")]
-        public ActionResult GetAluno()
+        [Route("GetNotas")]
+        public ActionResult GetNotas()
         {
-            var result = new Aluno()
+            var result = new Notas()
             {
-                Nome = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o aluno que quer adicionar
-                Sobrenome = "",             
-                Curso = "",
-                Cpf = "",
-                DataNascimento = DateTime.Parse("29/11/1995")
+                Aluno = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o Notas que quer adicionar
+                Matéria = "",
+                Nota = 0
             };
             return Ok(result);
         }
 
-        public static List<Aluno> minhaLista = new List<Aluno>();
+        public static List<Notas> minhaLista = new List<Notas>();
 
         [HttpPost]
-        [Route ("PostAluno")]
-        public ActionResult PostAluno(Aluno aluno)
+        [Route("PostNotas")]
+        public ActionResult PostNotas(Notas notas)
         {
-            minhaLista.Add(aluno);
+            minhaLista.Add(notas);
             return Ok(minhaLista);
         }
 
         [HttpGet]
-        [Route("BuscaAlunoPorNome")]
-        public ActionResult GetAluno(string nome)
+        [Route("BuscaNotasPorAlunoEMateria")]
+        public ActionResult GetNotas(string aluno, string materia)
         {
             try
             {
-                var result = minhaLista.Where(x => x.Nome.Contains(nome)).ToList();
+                var result = minhaLista.Where(x => x.Aluno.Contains(aluno) && x.Matéria.Contains(materia)).ToList();
                 if (result.Count == 0)
                 {
                     return BadRequest(Message.Failure);
@@ -58,35 +55,35 @@ namespace ProjetoBoletimAlunos.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteAluno")]
-        public ActionResult DeleteAluno(string nome, string sobrenome)
+        [Route("DeleteNotas")]
+        public ActionResult DeleteNotas(string aluno, string materia)
         {
             try
             {
-                var result = minhaLista.RemoveAll(x => x.Nome == nome && x.Sobrenome == sobrenome);
+                var result = minhaLista.RemoveAll(x => x.Aluno == aluno && x.Matéria == materia);
 
                 if (result == 0)
                     return BadRequest(Message.Failure);
                 else
                     return Ok(Message.Failure);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return BadRequest(Message.Failure);
             }
         }
 
         [HttpPut]
-        [Route("UpdateAluno")]
-        public ActionResult UpdateAluno(string cpfAluno, string novoAluno)
+        [Route("UpdateNotas")]
+        public ActionResult UpdateNotas(string aluno, string materia, decimal novaNota)
         {
-            var result = new Result<List<Aluno>>();
+            var result = new Result<List<Notas>>();
             try
             {
-                result.Data = minhaLista.Where(x => x.Cpf == cpfAluno).ToList();
+                result.Data = minhaLista.Where(x => x.Aluno == aluno && x.Matéria == materia).ToList();
                 result.Data.Select(s =>
                 {
-                    s.Cpf = novoAluno; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o aluno pelo cpf
+                    s.Nota = novaNota; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o Notas pelo cpf
                     return s;
                 }).ToList();
                 return Ok(result);
@@ -97,7 +94,6 @@ namespace ProjetoBoletimAlunos.Controllers
                 result.Message = ex.Message;
                 return BadRequest(result);
             }
-
         }
     }
 }

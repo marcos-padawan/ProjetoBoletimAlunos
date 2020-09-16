@@ -5,45 +5,42 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProjetoBoletimAlunos.Controllers
+namespace ProjetoBoletimMaterias.Controllers
 {
     [ApiController]
-    [Route("Aluno")]
-    public class AlunoController : ControllerBase
+    [Route("Matéria")]
+    public class MatériaController : ControllerBase 
     {
-      
         [HttpGet]
-        [Route("GetAluno")]
-        public ActionResult GetAluno()
+        [Route("GetMateria")]
+        public ActionResult GetMateria()
         {
-            var result = new Aluno()
+            var result = new Matéria()
             {
-                Nome = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o aluno que quer adicionar
-                Sobrenome = "",             
-                Curso = "",
-                Cpf = "",
-                DataNascimento = DateTime.Parse("29/11/1995")
+                Descrição = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o Materia que quer adicionar
+                Situação = "",
+                DataCadastro = DateTime.Parse("10/09/2018")
             };
             return Ok(result);
         }
 
-        public static List<Aluno> minhaLista = new List<Aluno>();
+        public static List<Matéria> minhaLista = new List<Matéria>();
 
         [HttpPost]
-        [Route ("PostAluno")]
-        public ActionResult PostAluno(Aluno aluno)
+        [Route("PostMateria")]
+        public ActionResult PostMateria(Matéria materia)
         {
-            minhaLista.Add(aluno);
+            minhaLista.Add(materia);
             return Ok(minhaLista);
         }
 
         [HttpGet]
-        [Route("BuscaAlunoPorNome")]
-        public ActionResult GetAluno(string nome)
+        [Route("BuscaMateriaPorDescricao")]
+        public ActionResult GetMateria(string descricao)
         {
             try
             {
-                var result = minhaLista.Where(x => x.Nome.Contains(nome)).ToList();
+                var result = minhaLista.Where(x => x.Descrição.Contains(descricao)).ToList();
                 if (result.Count == 0)
                 {
                     return BadRequest(Message.Failure);
@@ -58,35 +55,35 @@ namespace ProjetoBoletimAlunos.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteAluno")]
-        public ActionResult DeleteAluno(string nome, string sobrenome)
+        [Route("DeleteMateria")]
+        public ActionResult DeleteMateria(string descricao)
         {
             try
             {
-                var result = minhaLista.RemoveAll(x => x.Nome == nome && x.Sobrenome == sobrenome);
+                var result = minhaLista.RemoveAll(x => x.Descrição == descricao);
 
                 if (result == 0)
                     return BadRequest(Message.Failure);
                 else
                     return Ok(Message.Failure);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return BadRequest(Message.Failure);
             }
         }
 
         [HttpPut]
-        [Route("UpdateAluno")]
-        public ActionResult UpdateAluno(string cpfAluno, string novoAluno)
+        [Route("UpdateMateria")]
+        public ActionResult UpdateMateria(string descricaoMateria, string novoMateria)
         {
-            var result = new Result<List<Aluno>>();
+            var result = new Result<List<Matéria>>();
             try
             {
-                result.Data = minhaLista.Where(x => x.Cpf == cpfAluno).ToList();
+                result.Data = minhaLista.Where(x => x.Descrição == descricaoMateria).ToList();
                 result.Data.Select(s =>
                 {
-                    s.Cpf = novoAluno; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o aluno pelo cpf
+                    s.Descrição = novoMateria; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o Materia pelo cpf
                     return s;
                 }).ToList();
                 return Ok(result);

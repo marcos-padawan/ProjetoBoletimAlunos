@@ -5,45 +5,43 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProjetoBoletimAlunos.Controllers
+
+namespace ProjetoBoletimCursos.Controllers
 {
     [ApiController]
-    [Route("Aluno")]
-    public class AlunoController : ControllerBase
+    [Route ("Curso")]
+    public class CursoController : ControllerBase
     {
-      
         [HttpGet]
-        [Route("GetAluno")]
-        public ActionResult GetAluno()
+        [Route("GetCurso")]
+        public ActionResult GetCurso()
         {
-            var result = new Aluno()
+            var result = new Curso()
             {
-                Nome = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o aluno que quer adicionar
-                Sobrenome = "",             
-                Curso = "",
-                Cpf = "",
-                DataNascimento = DateTime.Parse("29/11/1995")
+                NomeCurso = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o Curso que quer adicionar
+                Situação = "",
+                Matéria = "",
             };
             return Ok(result);
         }
 
-        public static List<Aluno> minhaLista = new List<Aluno>();
+        public static List<Curso> minhaLista = new List<Curso>();
 
         [HttpPost]
-        [Route ("PostAluno")]
-        public ActionResult PostAluno(Aluno aluno)
+        [Route("PostCurso")]
+        public ActionResult PostCurso(Curso curso)
         {
-            minhaLista.Add(aluno);
+            minhaLista.Add(curso);
             return Ok(minhaLista);
         }
 
         [HttpGet]
-        [Route("BuscaAlunoPorNome")]
-        public ActionResult GetAluno(string nome)
+        [Route("BuscaCursoPorNome")]
+        public ActionResult GetCurso(string nome)
         {
             try
             {
-                var result = minhaLista.Where(x => x.Nome.Contains(nome)).ToList();
+                var result = minhaLista.Where(x => x.NomeCurso.Contains(nome)).ToList();
                 if (result.Count == 0)
                 {
                     return BadRequest(Message.Failure);
@@ -58,35 +56,35 @@ namespace ProjetoBoletimAlunos.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteAluno")]
-        public ActionResult DeleteAluno(string nome, string sobrenome)
+        [Route("DeleteCurso")]
+        public ActionResult DeleteCurso(string nome)
         {
             try
             {
-                var result = minhaLista.RemoveAll(x => x.Nome == nome && x.Sobrenome == sobrenome);
+                var result = minhaLista.RemoveAll(x => x.NomeCurso == nome );
 
                 if (result == 0)
                     return BadRequest(Message.Failure);
                 else
                     return Ok(Message.Failure);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return BadRequest(Message.Failure);
             }
         }
 
         [HttpPut]
-        [Route("UpdateAluno")]
-        public ActionResult UpdateAluno(string cpfAluno, string novoAluno)
+        [Route("UpdateCurso")]
+        public ActionResult UpdateCurso(string nomeCurso, string novoCurso)
         {
-            var result = new Result<List<Aluno>>();
+            var result = new Result<List<Curso>>();
             try
             {
-                result.Data = minhaLista.Where(x => x.Cpf == cpfAluno).ToList();
+                result.Data = minhaLista.Where(x => x.NomeCurso == nomeCurso).ToList();
                 result.Data.Select(s =>
                 {
-                    s.Cpf = novoAluno; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o aluno pelo cpf
+                    s.NomeCurso = novoCurso; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o Curso pelo cpf
                     return s;
                 }).ToList();
                 return Ok(result);
