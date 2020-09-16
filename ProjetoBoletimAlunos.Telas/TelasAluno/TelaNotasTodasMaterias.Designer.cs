@@ -1,6 +1,6 @@
 ﻿namespace ProjetoBoletimAlunos.Telas.TelasAluno
 {
-    partial class MenuNotasTodasMaterias
+    partial class TelaNotasTodasMaterias
     {
         /// <summary>
         /// Required designer variable.

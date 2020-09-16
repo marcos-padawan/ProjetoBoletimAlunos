@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace ProjetoBoletimAlunos.Telas.TelasAluno
 {
-    public partial class MenuNotasTodasMaterias : Form
+    public partial class TelaNotasTodasMaterias : Form
     {
-        public MenuNotasTodasMaterias()
+        public TelaNotasTodasMaterias()
         {
             InitializeComponent();
         }
