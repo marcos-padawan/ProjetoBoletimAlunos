@@ -1,6 +1,6 @@
 ﻿namespace ProjetoBoletimAlunos.Telas.TelasAluno
 {
-    partial class TelaNotasTodasMaterias
+    partial class form_TelaNotasTodasMaterias
     {
         /// <summary>
         /// Required designer variable.
@@ -96,7 +96,7 @@
             this.btn_VoltaMenuAluno.Text = "Voltar ao Menu de Aluno";
             this.btn_VoltaMenuAluno.UseVisualStyleBackColor = false;
             // 
-            // MenuNotasTodasMaterias
+            // form_TelaNotasTodasMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,7 +108,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_ListaNotasAtivas);
             this.Controls.Add(this.label1);
-            this.Name = "MenuNotasTodasMaterias";
+            this.Name = "form_TelaNotasTodasMaterias";
             this.Text = "Boletim Curso Ativo";
             this.ResumeLayout(false);
             this.PerformLayout();

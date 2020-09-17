@@ -32,7 +32,7 @@
             this.cmb_EscolheMateriaAtiva = new System.Windows.Forms.ComboBox();
             this.btn_VoltaMenuAluno = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn_NotaMateriaAtivaEscolhida = new System.Windows.Forms.TextBox();
+            this.txt_NotaMateriaAtivaEscolhida = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -78,13 +78,13 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Matéria";
             // 
-            // btn_NotaMateriaAtivaEscolhida
+            // txt_NotaMateriaAtivaEscolhida
             // 
-            this.btn_NotaMateriaAtivaEscolhida.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_NotaMateriaAtivaEscolhida.Location = new System.Drawing.Point(366, 119);
-            this.btn_NotaMateriaAtivaEscolhida.Name = "btn_NotaMateriaAtivaEscolhida";
-            this.btn_NotaMateriaAtivaEscolhida.Size = new System.Drawing.Size(224, 38);
-            this.btn_NotaMateriaAtivaEscolhida.TabIndex = 5;
+            this.txt_NotaMateriaAtivaEscolhida.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_NotaMateriaAtivaEscolhida.Location = new System.Drawing.Point(366, 119);
+            this.txt_NotaMateriaAtivaEscolhida.Name = "txt_NotaMateriaAtivaEscolhida";
+            this.txt_NotaMateriaAtivaEscolhida.Size = new System.Drawing.Size(224, 38);
+            this.txt_NotaMateriaAtivaEscolhida.TabIndex = 5;
             // 
             // label3
             // 
@@ -105,7 +105,7 @@
             this.ClientSize = new System.Drawing.Size(630, 268);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn_NotaMateriaAtivaEscolhida);
+            this.Controls.Add(this.txt_NotaMateriaAtivaEscolhida);
             this.Controls.Add(this.btn_VoltaMenuAluno);
             this.Controls.Add(this.cmb_EscolheMateriaAtiva);
             this.Controls.Add(this.label1);
@@ -122,7 +122,7 @@
         private System.Windows.Forms.ComboBox cmb_EscolheMateriaAtiva;
         private System.Windows.Forms.Button btn_VoltaMenuAluno;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox btn_NotaMateriaAtivaEscolhida;
+        private System.Windows.Forms.TextBox txt_NotaMateriaAtivaEscolhida;
         private System.Windows.Forms.Label label3;
     }
 }

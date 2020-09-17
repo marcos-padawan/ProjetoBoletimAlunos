@@ -1,6 +1,6 @@
 ﻿namespace ProjetoBoletimAlunos.Telas.TelasAluno
 {
-    partial class TelaNotasCursosPassados
+    partial class form_TelaNotasCursosPassados
     {
         /// <summary>
         /// Required designer variable.
@@ -129,7 +129,7 @@
             this.lbl_MostraErroNaoTemCursoAnterior.Size = new System.Drawing.Size(0, 31);
             this.lbl_MostraErroNaoTemCursoAnterior.TabIndex = 1;
             // 
-            // TelaNotasCursosPassados
+            // form_TelaNotasCursosPassados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -144,7 +144,7 @@
             this.Controls.Add(this.txt_ListaMateriasCursoAnterior);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_VoltaMenuAluno);
-            this.Name = "TelaNotasCursosPassados";
+            this.Name = "form_TelaNotasCursosPassados";
             this.Text = "TelaNotasCursosPassados";
             this.ResumeLayout(false);
             this.PerformLayout();

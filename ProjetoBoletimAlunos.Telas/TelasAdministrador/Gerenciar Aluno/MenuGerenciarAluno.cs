@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjetoBoletimAlunos.Telas.TelasAluno
+namespace ProjetoBoletimAlunos.Telas.TelasAdministrador
 {
-    public partial class form_TelaNotasCursosPassados : Form
+    public partial class form_MenuGerenciarAluno : Form
     {
-        public form_TelaNotasCursosPassados()
+        public form_MenuGerenciarAluno()
         {
             InitializeComponent();
         }

@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProjetoBoletimAlunos.Telas.TelasAluno
+namespace ProjetoBoletimAlunos.Telas.TelasAdministrador.Gerenciar_Curso
 {
-    public partial class form_TelaNotasCursosPassados : Form
+    public partial class form_AdicionarCurso : Form
     {
-        public form_TelaNotasCursosPassados()
+        public form_AdicionarCurso()
         {
             InitializeComponent();
         }
