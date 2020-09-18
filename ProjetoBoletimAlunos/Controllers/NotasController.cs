@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProjetoBoletimAlunos.Models;
+using ProjetoBoletimAlunos.Context.Models;
 using ProjetoBoletimAlunos.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -17,8 +17,8 @@ namespace ProjetoBoletimAlunos.Controllers
         {
             var result = new Notas()
             {
-                Aluno = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o Notas que quer adicionar
-                Matéria = "",
+                Alunos = { },                  // aqui tenho que colocar o valor do form pro usuário preencher o Notas que quer adicionar
+                Matérias = { },
                 Nota = 0
             };
             return Ok(result);
@@ -36,11 +36,11 @@ namespace ProjetoBoletimAlunos.Controllers
 
         [HttpGet]
         [Route("BuscaNotasPorAlunoEMateria")]
-        public ActionResult GetNotas(string aluno, string materia)
+        public ActionResult GetNotas(string alunoNome,string alunoSobrenome, string materia)
         {
             try
             {
-                var result = minhaLista.Where(x => x.Aluno.Contains(aluno) && x.Matéria.Contains(materia)).ToList();
+                var result = minhaLista.Where(x => x.Alunos.Nome.Contains(alunoNome) && x.Alunos.Sobrenome.Contains(alunoSobrenome) &&  x.Matérias.Descrição.Contains(materia)).ToList();
                 if (result.Count == 0)
                 {
                     return BadRequest(Message.Failure);
@@ -56,11 +56,11 @@ namespace ProjetoBoletimAlunos.Controllers
 
         [HttpDelete]
         [Route("DeleteNotas")]
-        public ActionResult DeleteNotas(string aluno, string materia)
+        public ActionResult DeleteNotas(string alunoNome, string alunoSobrenome, string materia)
         {
             try
             {
-                var result = minhaLista.RemoveAll(x => x.Aluno == aluno && x.Matéria == materia);
+                var result = minhaLista.RemoveAll(x => x.Alunos.Nome == alunoNome && x.Alunos.Sobrenome == alunoSobrenome &&  x.Matérias.Descrição == materia);
 
                 if (result == 0)
                     return BadRequest(Message.Failure);
@@ -75,12 +75,12 @@ namespace ProjetoBoletimAlunos.Controllers
 
         [HttpPut]
         [Route("UpdateNotas")]
-        public ActionResult UpdateNotas(string aluno, string materia, decimal novaNota)
+        public ActionResult UpdateNotas(string alunoNome,string alunoSobrenome, string materia, decimal novaNota)
         {
             var result = new Result<List<Notas>>();
             try
             {
-                result.Data = minhaLista.Where(x => x.Aluno == aluno && x.Matéria == materia).ToList();
+                result.Data = minhaLista.Where(x => x.Alunos.Nome == alunoNome && x.Alunos.Sobrenome == alunoSobrenome &&  x.Matérias.Descrição == materia).ToList();
                 result.Data.Select(s =>
                 {
                     s.Nota = novaNota; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o Notas pelo cpf

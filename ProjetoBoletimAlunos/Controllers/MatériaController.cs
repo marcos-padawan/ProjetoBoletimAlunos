@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProjetoBoletimAlunos.Models;
+using ProjetoBoletimAlunos.Context.Models;
 using ProjetoBoletimAlunos.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -94,7 +94,6 @@ namespace ProjetoBoletimMaterias.Controllers
                 result.Message = ex.Message;
                 return BadRequest(result);
             }
-
         }
     }
 }

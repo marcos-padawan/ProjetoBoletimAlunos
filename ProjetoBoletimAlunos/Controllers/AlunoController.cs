@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProjetoBoletimAlunos.Models;
+using ProjetoBoletimAlunos.Context.Models;
 using ProjetoBoletimAlunos.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ProjetoBoletimAlunos.Telas;
 
 namespace ProjetoBoletimAlunos.Controllers
 {
@@ -20,7 +21,7 @@ namespace ProjetoBoletimAlunos.Controllers
             {
                 Nome = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o aluno que quer adicionar
                 Sobrenome = "",             
-                Curso = "",
+                Curso = { },
                 Cpf = "",
                 DataNascimento = DateTime.Parse("29/11/1995")
             };
@@ -39,11 +40,11 @@ namespace ProjetoBoletimAlunos.Controllers
 
         [HttpGet]
         [Route("BuscaAlunoPorNome")]
-        public ActionResult GetAluno(string nome)
+        public ActionResult GetAluno(string nome, string sobrenome)
         {
             try
             {
-                var result = minhaLista.Where(x => x.Nome.Contains(nome)).ToList();
+                var result = minhaLista.Where(x => x.Nome.Contains(nome) && x.Sobrenome.Contains(sobrenome)).ToList();
                 if (result.Count == 0)
                 {
                     return BadRequest(Message.Failure);

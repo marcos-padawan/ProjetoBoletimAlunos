@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProjetoBoletimAlunos.Models;
+using ProjetoBoletimAlunos.Context.Models;
 using ProjetoBoletimAlunos.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 namespace ProjetoBoletimCursos.Controllers
 {
     [ApiController]
-    [Route ("Curso")]
+    [Route("Curso")]
     public class CursoController : ControllerBase
     {
         [HttpGet]
@@ -20,7 +20,7 @@ namespace ProjetoBoletimCursos.Controllers
             {
                 NomeCurso = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o Curso que quer adicionar
                 Situação = "",
-                Matéria = "",
+                Matérias = { },
             };
             return Ok(result);
         }
@@ -61,7 +61,7 @@ namespace ProjetoBoletimCursos.Controllers
         {
             try
             {
-                var result = minhaLista.RemoveAll(x => x.NomeCurso == nome );
+                var result = minhaLista.RemoveAll(x => x.NomeCurso == nome);
 
                 if (result == 0)
                     return BadRequest(Message.Failure);
@@ -95,7 +95,6 @@ namespace ProjetoBoletimCursos.Controllers
                 result.Message = ex.Message;
                 return BadRequest(result);
             }
-
         }
     }
 }

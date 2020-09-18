@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS0006: Arquivo de origem "C:\Users\marcos.leonardi\Documents\CURSO C# AVANÇADO - MAESTRO\ProjetoBoletimAlunos\ProjetoBoletimAlunos.Context\bin\Debug\netcoreapp3.1\ProjetoBoletimAlunos.Context.dll" não pode ser encontrado
+dotnet_diagnostic.CS0006.severity = none
