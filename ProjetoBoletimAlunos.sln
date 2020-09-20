@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoBoletimAlunos.TELASVAMOPORA", "ProjetoBoletimAlunos.TELASVAMOPORA\ProjetoBoletimAlunos.TELASVAMOPORA.csproj", "{C8E50DA0-7852-4251-9F6A-8F5ADBB7DDC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoBoletimAlunos.Forms", "ProjetoBoletimAlunos.Forms\ProjetoBoletimAlunos.Forms.csproj", "{F5B5620C-36B4-4558-8B3C-FB0AEDAB6252}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,10 +40,10 @@ Global
 		{32B09FE6-461F-4428-B027-3CB9C12606D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32B09FE6-461F-4428-B027-3CB9C12606D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32B09FE6-461F-4428-B027-3CB9C12606D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8E50DA0-7852-4251-9F6A-8F5ADBB7DDC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8E50DA0-7852-4251-9F6A-8F5ADBB7DDC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8E50DA0-7852-4251-9F6A-8F5ADBB7DDC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8E50DA0-7852-4251-9F6A-8F5ADBB7DDC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5B5620C-36B4-4558-8B3C-FB0AEDAB6252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B5620C-36B4-4558-8B3C-FB0AEDAB6252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B5620C-36B4-4558-8B3C-FB0AEDAB6252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B5620C-36B4-4558-8B3C-FB0AEDAB6252}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
