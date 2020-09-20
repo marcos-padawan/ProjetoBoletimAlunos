@@ -11,7 +11,6 @@ namespace ProjetoBoletimAlunos.Context.Types
             builder.HasKey(q => q.Id);
             builder.Property(q => q.NomeCurso).IsRequired().HasMaxLength(80);
             builder.Property(q => q.Situação).IsRequired();
-            builder.HasMany(q => q.Matérias).WithOne().HasForeignKey(q => q.Curso);
         }
     }
 }

@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -32,11 +31,12 @@ namespace ProjetoBoletimAlunos
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "HBSIS CRUD BOLETIM.HBSIS",
+                    Title = "HBSIS CRUD BOLETIM.UniPDWN",
                     Version = "v1",
                 });
             });
             //-----------
+            services.AddDbContext<BancoDeDadosContext>(op => op.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

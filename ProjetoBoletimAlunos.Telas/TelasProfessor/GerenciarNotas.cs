@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ProjetoBoletimAlunos.Telas.TelasProfessor
@@ -14,10 +9,21 @@ namespace ProjetoBoletimAlunos.Telas.TelasProfessor
         {
             InitializeComponent();
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_AddNotas_Click(object sender, EventArgs e)
         {
-
+            var adicionarNotas = new form_AdicionarNotas();
+            this.Hide();
+            adicionarNotas.ShowDialog();
+            this.Show();
         }
+
+        private void btn_VoltarMenuPrincipal_Click(object sender, EventArgs e)
+        {
+            var menuPrincipal = new form_MenuPrincipal();
+            this.Hide();
+            menuPrincipal.ShowDialog();
+            this.Show();
+        }
+
     }
 }

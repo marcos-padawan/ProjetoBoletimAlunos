@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using ProjetoBoletimAlunos.Models;
+using ProjetoBoletimAlunos.Context.Models;
 
 
 

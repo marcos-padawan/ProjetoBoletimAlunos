@@ -13,8 +13,6 @@ namespace ProjetoBoletimAlunos.Context.Types
             builder.Property(q => q.Sobrenome).IsRequired().HasMaxLength(100);
             builder.Property(q => q.Cpf).IsRequired().HasMaxLength(100);
             builder.Property(q => q.DataNascimento).IsRequired();
-            builder.HasOne(x => x.Curso).WithMany().HasForeignKey(x => x.CursoId);
         }                                                            
-
     }
 }

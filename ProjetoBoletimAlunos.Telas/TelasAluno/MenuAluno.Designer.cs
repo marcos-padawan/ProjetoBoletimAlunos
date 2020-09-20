@@ -173,7 +173,6 @@
             this.Controls.Add(this.btn_Notas1Materia);
             this.Name = "form_MenuAluno";
             this.Text = "Menu aluno";
-            this.Load += new System.EventHandler(this.form_MenuAluno_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjetoBoletimAlunosTelas
+namespace ProjetoBoletimAlunos.Telas.TelasAluno
 {
-    public partial class Form1 : Form
+    public partial class form_MenuAluno : Form
     {
-        public Form1()
+        public form_MenuAluno()
         {
             InitializeComponent();
         }
 
+        private void form_MenuAluno_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

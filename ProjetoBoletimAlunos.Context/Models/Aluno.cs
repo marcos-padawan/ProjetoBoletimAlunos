@@ -14,6 +14,6 @@ namespace ProjetoBoletimAlunos.Context.Models
         public int CursoId { get; set; }        //FK
         public virtual Curso Curso { get; set; }        //FK
         public virtual ICollection<MateriaAluno> Matérias { get; set; } = new HashSet<MateriaAluno>();
-        public ICollection<Notas> Notas { get; set; } = new HashSet<Notas>();
+        public virtual ICollection<Notas> Notas { get; set; } = new HashSet<Notas>();
     }
 }

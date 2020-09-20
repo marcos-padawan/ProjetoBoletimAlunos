@@ -112,7 +112,6 @@
             this.btn_VoltarGerencCurso.TabIndex = 3;
             this.btn_VoltarGerencCurso.Text = "Voltar";
             this.btn_VoltarGerencCurso.UseVisualStyleBackColor = false;
-            this.btn_VoltarGerencCurso.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
             // 
@@ -124,7 +123,6 @@
             this.label3.Size = new System.Drawing.Size(83, 28);
             this.label3.TabIndex = 0;
             this.label3.Text = "Matéria:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 

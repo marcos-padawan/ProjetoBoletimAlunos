@@ -237,7 +237,6 @@
             this.btn_EscluirNotas.TabIndex = 3;
             this.btn_EscluirNotas.Text = "Excluir Nota";
             this.btn_EscluirNotas.UseVisualStyleBackColor = false;
-            this.btn_EscluirNotas.Click += new System.EventHandler(this.button3_Click);
             // 
             // btn_AlterarNotas
             // 
@@ -249,7 +248,6 @@
             this.btn_AlterarNotas.TabIndex = 3;
             this.btn_AlterarNotas.Text = "Alterar Nota";
             this.btn_AlterarNotas.UseVisualStyleBackColor = false;
-            this.btn_AlterarNotas.Click += new System.EventHandler(this.button3_Click);
             // 
             // btn_VoltarMenuPrincipal
             // 
@@ -261,7 +259,6 @@
             this.btn_VoltarMenuPrincipal.TabIndex = 3;
             this.btn_VoltarMenuPrincipal.Text = "Voltar";
             this.btn_VoltarMenuPrincipal.UseVisualStyleBackColor = false;
-            this.btn_VoltarMenuPrincipal.Click += new System.EventHandler(this.button3_Click);
             // 
             // form_GerenciarNotas
             // 

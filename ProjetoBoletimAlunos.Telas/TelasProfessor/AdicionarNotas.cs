@@ -15,24 +15,15 @@ namespace ProjetoBoletimAlunos.Telas.TelasProfessor
             InitializeComponent();
         }
 
-        private void form_AdicionarNotas_Load(object sender, EventArgs e)
+        private void btn_Voltar_Click(object sender, EventArgs e)
         {
-
+            var voltaGerenciarNotas = new form_GerenciarNotas();
+            this.Hide();
+            voltaGerenciarNotas.ShowDialog();
+            this.Show();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

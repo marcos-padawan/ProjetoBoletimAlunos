@@ -11,8 +11,6 @@ namespace ProjetoBoletimAlunos.Context.Types
         {
             builder.HasKey(q => q.Id);
             builder.Property(q => q.Nota).IsRequired();
-            builder.HasOne(x => x.Alunos).WithMany().HasForeignKey(x => x.AlunoId);
-            builder.HasOne(x => x.Matérias).WithMany().HasForeignKey(x => x.MatériaId);
         }
     }
 }

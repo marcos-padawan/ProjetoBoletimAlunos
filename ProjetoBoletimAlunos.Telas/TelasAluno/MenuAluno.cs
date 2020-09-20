@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
+
 
 namespace ProjetoBoletimAlunos.Telas.TelasAluno
 {
@@ -14,10 +10,33 @@ namespace ProjetoBoletimAlunos.Telas.TelasAluno
         {
             InitializeComponent();
         }
-
-        private void form_MenuAluno_Load(object sender, EventArgs e)
+        private void btn_Notas1Materia(object sender, EventArgs e)
         {
-
+            var telaNotas1Materia = new form_MenuNotaUmaMateria();
+            this.Hide();
+            telaNotas1Materia.ShowDialog();
+            this.Show();
+        }
+        private void btn_NotasTodasMaterias(object sender, EventArgs e)
+        {
+            var telaNotasTodasMaterias = new form_TelaNotasTodasMaterias();
+            this.Hide();
+            telaNotasTodasMaterias.ShowDialog();
+            this.Show();
+        }
+        private void btn_NotasCursosAnteriores(object sender, EventArgs e)
+        {
+            var telaNotasCursosPassados = new form_TelaNotasCursosPassados();
+            this.Hide();
+            telaNotasCursosPassados.ShowDialog();
+            this.Show();
+        }
+        private void btn_VoltaMenuPrincipal(object sender, EventArgs e)
+        {
+            var menuPrincipal = new form_MenuPrincipal();
+            this.Hide();
+            menuPrincipal.ShowDialog();
+            this.Show();
         }
     }
 }
