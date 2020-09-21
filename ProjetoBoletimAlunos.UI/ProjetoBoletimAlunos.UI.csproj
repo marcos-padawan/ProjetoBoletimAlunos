@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,16 +49,119 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Message.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TelasAdministrador\Gerenciar Aluno\AlterarOuExcluirAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Aluno\AlterarOuExcluirAluno.Designer.cs">
+      <DependentUpon>AlterarOuExcluirAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Aluno\AdicionarAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Aluno\AdicionarAluno.Designer.cs">
+      <DependentUpon>AdicionarAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Aluno\MenuGerenciarAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Aluno\MenuGerenciarAluno.Designer.cs">
+      <DependentUpon>MenuGerenciarAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Curso\AdicionarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Curso\AdicionarCurso.Designer.cs">
+      <DependentUpon>AdicionarCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Curso\AlterarOuExcluirCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Curso\AlterarOuExcluirCurso.Designer.cs">
+      <DependentUpon>AlterarOuExcluirCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Curso\MenuGerenciarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Curso\MenuGerenciarCurso.Designer.cs">
+      <DependentUpon>MenuGerenciarCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Materia\AdicionarMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Materia\AdicionarMateria.Designer.cs">
+      <DependentUpon>AdicionarMateria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Materia\AlterarOuExcluirMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Materia\AlterarOuExcluirMateria.Designer.cs">
+      <DependentUpon>AlterarOuExcluirMateria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Materia\MenuGerenciarMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAdministrador\Gerenciar Materia\MenuGerenciarMateria.Designer.cs">
+      <DependentUpon>MenuGerenciarMateria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAdministrador\MenuAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAdministrador\MenuAdministrador.Designer.cs">
+      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAluno\MenuAluno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAluno\MenuAluno.Designer.cs">
+      <DependentUpon>MenuAluno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAluno\NotasCursosPassados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAluno\NotasCursosPassados.Designer.cs">
+      <DependentUpon>NotasCursosPassados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAluno\NotasTodasMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAluno\NotasTodasMaterias.Designer.cs">
+      <DependentUpon>NotasTodasMaterias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasAluno\NotaUmaMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasAluno\NotaUmaMateria.Designer.cs">
+      <DependentUpon>NotaUmaMateria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasProfessor\AdicionarNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasProfessor\AdicionarNotas.Designer.cs">
+      <DependentUpon>AdicionarNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasProfessor\AlterarOuExcluirNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasProfessor\AlterarOuExcluirNota.Designer.cs">
+      <DependentUpon>AlterarOuExcluirNota.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasProfessor\MenuGerenciarNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasProfessor\MenuGerenciarNotas.Designer.cs">
+      <DependentUpon>MenuGerenciarNotas.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +172,58 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TelasAdministrador\Gerenciar Aluno\AlterarOuExcluirAluno.resx">
+      <DependentUpon>AlterarOuExcluirAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAdministrador\Gerenciar Aluno\AdicionarAluno.resx">
+      <DependentUpon>AdicionarAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAdministrador\Gerenciar Aluno\MenuGerenciarAluno.resx">
+      <DependentUpon>MenuGerenciarAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAdministrador\Gerenciar Curso\AdicionarCurso.resx">
+      <DependentUpon>AdicionarCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAdministrador\Gerenciar Curso\AlterarOuExcluirCurso.resx">
+      <DependentUpon>AlterarOuExcluirCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAdministrador\Gerenciar Curso\MenuGerenciarCurso.resx">
+      <DependentUpon>MenuGerenciarCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAdministrador\Gerenciar Materia\AdicionarMateria.resx">
+      <DependentUpon>AdicionarMateria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAdministrador\Gerenciar Materia\AlterarOuExcluirMateria.resx">
+      <DependentUpon>AlterarOuExcluirMateria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAdministrador\Gerenciar Materia\MenuGerenciarMateria.resx">
+      <DependentUpon>MenuGerenciarMateria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAdministrador\MenuAdministrador.resx">
+      <DependentUpon>MenuAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAluno\MenuAluno.resx">
+      <DependentUpon>MenuAluno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAluno\NotasCursosPassados.resx">
+      <DependentUpon>NotasCursosPassados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAluno\NotasTodasMaterias.resx">
+      <DependentUpon>NotasTodasMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasAluno\NotaUmaMateria.resx">
+      <DependentUpon>NotaUmaMateria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasProfessor\AdicionarNotas.resx">
+      <DependentUpon>AdicionarNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasProfessor\AlterarOuExcluirNota.resx">
+      <DependentUpon>AlterarOuExcluirNota.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasProfessor\MenuGerenciarNotas.resx">
+      <DependentUpon>MenuGerenciarNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,5 +246,6 @@
       <Name>ProjetoBoletimAlunos.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

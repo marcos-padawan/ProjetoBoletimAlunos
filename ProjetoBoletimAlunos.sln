@@ -16,9 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjetoBoletimAlunos.Forms", "ProjetoBoletimAlunos.Forms\ProjetoBoletimAlunos.Forms.csproj", "{F5B5620C-36B4-4558-8B3C-FB0AEDAB6252}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoBoletimAlunos.Models", "ProjetoBoletimAlunos.Models\ProjetoBoletimAlunos.Models.csproj", "{1712EE4D-B9F7-4373-B103-7B9CCBDF78AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjetoBoletimAlunos.Models", "ProjetoBoletimAlunos.Models\ProjetoBoletimAlunos.Models.csproj", "{1712EE4D-B9F7-4373-B103-7B9CCBDF78AD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoBoletimAlunos.UI", "ProjetoBoletimAlunos.UI\ProjetoBoletimAlunos.UI.csproj", "{6B92637F-3F38-4F65-AD8A-E32C35A26122}"
 EndProject
@@ -44,10 +42,6 @@ Global
 		{32B09FE6-461F-4428-B027-3CB9C12606D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32B09FE6-461F-4428-B027-3CB9C12606D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32B09FE6-461F-4428-B027-3CB9C12606D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F5B5620C-36B4-4558-8B3C-FB0AEDAB6252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5B5620C-36B4-4558-8B3C-FB0AEDAB6252}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5B5620C-36B4-4558-8B3C-FB0AEDAB6252}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5B5620C-36B4-4558-8B3C-FB0AEDAB6252}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1712EE4D-B9F7-4373-B103-7B9CCBDF78AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1712EE4D-B9F7-4373-B103-7B9CCBDF78AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1712EE4D-B9F7-4373-B103-7B9CCBDF78AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
