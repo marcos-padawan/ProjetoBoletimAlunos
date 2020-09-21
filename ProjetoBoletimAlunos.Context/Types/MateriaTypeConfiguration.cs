@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ProjetoBoletimAlunos.Context.Types
 {
-    class MateriaTypeConfiguration : IEntityTypeConfiguration<Matéria>
+    class MateriaTypeConfiguration : IEntityTypeConfiguration<Materia>
     {
-        public void Configure(EntityTypeBuilder<Matéria> builder)
+        public void Configure(EntityTypeBuilder<Materia> builder)
         {
             builder.HasKey(q => q.Id);
             builder.Property(q => q.Descrição).IsRequired();

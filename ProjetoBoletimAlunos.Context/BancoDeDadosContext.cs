@@ -31,22 +31,16 @@ namespace ProjetoBoletimAlunos.Context
            .HasForeignKey(p => p.CursoId)
            .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Matéria>()
-           .HasOne(p => p.Curso)
-           .WithMany(b => b.Matérias)
-           .HasForeignKey(p => p.CursoId)
-           .OnDelete(DeleteBehavior.Restrict);
-
             modelBuilder.Entity<MateriaAluno>()
            .HasOne(p => p.Aluno)
-           .WithMany(b => b.Matérias)
+           .WithMany(b => b.Materias)
            .HasForeignKey(p => p.AlunoId)
            .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<MateriaAluno>()
-           .HasOne(p => p.Matéria)
+           .HasOne(p => p.Materia)
            .WithMany(b => b.Alunos)
-           .HasForeignKey(p => p.MatériaId)
+           .HasForeignKey(p => p.MateriaId)
            .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Notas>()
@@ -56,17 +50,21 @@ namespace ProjetoBoletimAlunos.Context
            .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Notas>()
-           .HasOne(p => p.Matérias)
+           .HasOne(p => p.Materias)
            .WithMany(b => b.Notas)
-           .HasForeignKey(p => p.MatériaId)
+           .HasForeignKey(p => p.MateriaId)
            .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CursoMateria>()
+            .HasKey(x => new { x.CursoId, x.MateriaId });
 
         }
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Curso> Cursos { get; set; }
-        public DbSet<Matéria> Matérias { get; set; }
+        public DbSet<Materia> Materias { get; set; }
         public DbSet<Notas> Notas { get; set; }
         public DbSet<MateriaAluno> MateriaAlunos { get; set; }
+        public DbSet<CursoMateria> CursoMateria { get; set; }
 
     }
 }

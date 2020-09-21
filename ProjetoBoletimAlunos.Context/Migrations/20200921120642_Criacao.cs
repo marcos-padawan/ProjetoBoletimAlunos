@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjetoBoletimAlunos.Context.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Criacao : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,7 +45,7 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Matérias",
+                name: "Materias",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -53,13 +53,13 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                     Descrição = table.Column<string>(nullable: false),
                     Situação = table.Column<string>(nullable: false),
                     DataCadastro = table.Column<DateTime>(nullable: false),
-                    CursoId = table.Column<int>(nullable: false)
+                    CursoId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Matérias", x => x.Id);
+                    table.PrimaryKey("PK_Materias", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Matérias_Cursos_CursoId",
+                        name: "FK_Materias_Cursos_CursoId",
                         column: x => x.CursoId,
                         principalTable: "Cursos",
                         principalColumn: "Id",
@@ -67,11 +67,35 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CursoMateria",
+                columns: table => new
+                {
+                    MateriaId = table.Column<int>(nullable: false),
+                    CursoId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CursoMateria", x => new { x.CursoId, x.MateriaId });
+                    table.ForeignKey(
+                        name: "FK_CursoMateria_Cursos_CursoId",
+                        column: x => x.CursoId,
+                        principalTable: "Cursos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CursoMateria_Materias_MateriaId",
+                        column: x => x.MateriaId,
+                        principalTable: "Materias",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MateriaAlunos",
                 columns: table => new
                 {
                     AlunoId = table.Column<int>(nullable: false),
-                    MatériaId = table.Column<int>(nullable: false),
+                    MateriaId = table.Column<int>(nullable: false),
                     Nota = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
@@ -84,9 +108,9 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_MateriaAlunos_Matérias_MatériaId",
-                        column: x => x.MatériaId,
-                        principalTable: "Matérias",
+                        name: "FK_MateriaAlunos_Materias_MateriaId",
+                        column: x => x.MateriaId,
+                        principalTable: "Materias",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -99,7 +123,7 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nota = table.Column<decimal>(nullable: false),
                     AlunoId = table.Column<int>(nullable: false),
-                    MatériaId = table.Column<int>(nullable: false)
+                    MateriaId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -111,9 +135,9 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Notas_Matérias_MatériaId",
-                        column: x => x.MatériaId,
-                        principalTable: "Matérias",
+                        name: "FK_Notas_Materias_MateriaId",
+                        column: x => x.MateriaId,
+                        principalTable: "Materias",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -124,13 +148,18 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                 column: "CursoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MateriaAlunos_MatériaId",
-                table: "MateriaAlunos",
-                column: "MatériaId");
+                name: "IX_CursoMateria_MateriaId",
+                table: "CursoMateria",
+                column: "MateriaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Matérias_CursoId",
-                table: "Matérias",
+                name: "IX_MateriaAlunos_MateriaId",
+                table: "MateriaAlunos",
+                column: "MateriaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Materias_CursoId",
+                table: "Materias",
                 column: "CursoId");
 
             migrationBuilder.CreateIndex(
@@ -139,13 +168,16 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                 column: "AlunoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Notas_MatériaId",
+                name: "IX_Notas_MateriaId",
                 table: "Notas",
-                column: "MatériaId");
+                column: "MateriaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "CursoMateria");
+
             migrationBuilder.DropTable(
                 name: "MateriaAlunos");
 
@@ -156,7 +188,7 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                 name: "Alunos");
 
             migrationBuilder.DropTable(
-                name: "Matérias");
+                name: "Materias");
 
             migrationBuilder.DropTable(
                 name: "Cursos");

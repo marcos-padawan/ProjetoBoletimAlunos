@@ -11,10 +11,10 @@ namespace ProjetoBoletimAlunos.Context.Models
         public decimal Nota { get; set; }
 
         public int AlunoId { get; set; }     //FK
-        public int MatériaId { get; set; }   //FK
+        public int MateriaId { get; set; }   //FK
 
         public virtual Aluno Alunos { get; set; }
-        public virtual Matéria Matérias { get; set; }
+        public virtual Materia Materias { get; set; }
 
     }
 }

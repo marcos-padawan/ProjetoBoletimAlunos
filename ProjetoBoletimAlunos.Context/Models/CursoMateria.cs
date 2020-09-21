@@ -4,13 +4,11 @@ using System.Text;
 
 namespace ProjetoBoletimAlunos.Context.Models
 {
-    public class MateriaAluno
+    public class CursoMateria
     {
         public int MateriaId { get; set; }
         public virtual Materia Materia { get; set; }
-        public int AlunoId { get; set; }
-        public virtual Aluno Aluno { get; set; }
-        public decimal Nota { get; set; }
-        
+        public int CursoId { get; set; }
+        public virtual Curso Curso { get; set; }
     }
 }

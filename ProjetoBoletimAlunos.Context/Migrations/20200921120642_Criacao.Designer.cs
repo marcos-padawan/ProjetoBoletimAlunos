@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoBoletimAlunos.Context;
 
 namespace ProjetoBoletimAlunos.Context.Migrations
 {
     [DbContext(typeof(BancoDeDadosContext))]
-    partial class BancoDeDadosContextModelSnapshot : ModelSnapshot
+    [Migration("20200921120642_Criacao")]
+    partial class Criacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,6 +99,9 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CursoId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");
 
@@ -109,6 +114,8 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CursoId");
 
                     b.ToTable("Materias");
                 });
@@ -178,6 +185,13 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                         .HasForeignKey("MateriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.Materia", b =>
+                {
+                    b.HasOne("ProjetoBoletimAlunos.Context.Models.Curso", null)
+                        .WithMany("Materias")
+                        .HasForeignKey("CursoId");
                 });
 
             modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.MateriaAluno", b =>

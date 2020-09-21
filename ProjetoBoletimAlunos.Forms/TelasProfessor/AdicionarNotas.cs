@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using ProjetoBoletimAlunos.Forms.Models;
+using ProjetoBoletimAlunos.Context.Models;
 using System;
 using System.Net.Http;
 using System.Text;
@@ -39,7 +39,7 @@ namespace ProjetoBoletimAlunos.Forms.TelasProfessor
             novaNota.Nota = Convert.ToDecimal(txt_NotaAluno.Text);
             novaNota.Alunos.Nome = txt_NomeAluno.Text;
             novaNota.Alunos.Sobrenome = txt_SobrenomeAluno.Text;
-            novaNota.Matérias.Descrição = txt_MateriaAluno.Text;
+            novaNota.Materias.Descrição = txt_MateriaAluno.Text;
 
             var novaNotaJson = JsonConvert.SerializeObject(novaNota);
             StringContent content = new StringContent(novaNotaJson, Encoding.UTF8, "application/json");

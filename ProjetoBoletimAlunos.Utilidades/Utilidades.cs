@@ -1,9 +1,7 @@
 ﻿using ProjetoBoletimAlunos.Context;
 using ProjetoBoletimAlunos.Context.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ProjetoBoletimAlunos.Utilidades
 {
@@ -29,12 +27,12 @@ namespace ProjetoBoletimAlunos.Utilidades
                 meuBanco.SaveChanges();
             }
         }
-        public void AddMateria(Matéria matéria)
+        public void AddMateria(Materia matéria)
         {
             meuBanco = new BancoDeDadosContext();
             using (meuBanco)
             {
-                meuBanco.Matérias.Add(matéria);
+                meuBanco.Materias.Add(matéria);
                 meuBanco.SaveChanges();
             }
         }
@@ -64,7 +62,7 @@ namespace ProjetoBoletimAlunos.Utilidades
             {
                 return meuBanco.Notas.Where(x => x.Alunos.Nome.Equals(nomeAluno)
                 && x.Alunos.Sobrenome.Equals(sobrenomeAluno)
-                && x.Matérias.Descrição.Equals(materia)).ToList();
+                && x.Materias.Descrição.Equals(materia)).ToList();
             }
         }
         public List<Notas> ListarNotasPorCurso(string nomeAluno, string sobrenomeAluno, string nomeCurso)
@@ -87,12 +85,12 @@ namespace ProjetoBoletimAlunos.Utilidades
                 ).ToList();
             }
         }
-        public List<Matéria> BuscarMateriaPorNome(string nomeMateria)
+        public List<Materia> BuscarMateriaPorNome(string nomeMateria)
         {
             meuBanco = new BancoDeDadosContext();
             using (meuBanco)
             {
-                return meuBanco.Matérias.Where(x => x.Descrição.Equals(nomeMateria)).ToList();
+                return meuBanco.Materias.Where(x => x.Descrição.Equals(nomeMateria)).ToList();
             }
         }
         public List<Curso> BuscarCursoPorNome(string nomeCurso)
@@ -109,7 +107,7 @@ namespace ProjetoBoletimAlunos.Utilidades
             meuBanco = new BancoDeDadosContext();
             using (meuBanco)
             {
-                var materia = meuBanco.Matérias.FirstOrDefault(q => q.Descrição == descricao);
+                var materia = meuBanco.Materias.FirstOrDefault(q => q.Descrição == descricao);
                 if (materia != null)
                 {
                     materia.Descrição = novaDescricao;
@@ -130,10 +128,10 @@ namespace ProjetoBoletimAlunos.Utilidades
             meuBanco = new BancoDeDadosContext();
             using (meuBanco)
             {
-                var materiaRemovida = meuBanco.Matérias.FirstOrDefault(q => q.Descrição == descricao);
+                var materiaRemovida = meuBanco.Materias.FirstOrDefault(q => q.Descrição == descricao);
                 if (materiaRemovida != null)
                 {
-                    meuBanco.Matérias.Remove(materiaRemovida);
+                    meuBanco.Materias.Remove(materiaRemovida);
                     meuBanco.SaveChanges();
                     return Message.Success;
                 }

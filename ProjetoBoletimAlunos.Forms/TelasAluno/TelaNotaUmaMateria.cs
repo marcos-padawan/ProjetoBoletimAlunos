@@ -13,6 +13,9 @@ namespace ProjetoBoletimAlunos.Forms.TelasAluno
         public form_MenuNotaUmaMateria()
         {
             InitializeComponent();
+
+            cmb_EscolheMateriaAtiva.Items.Add("texto");
         }
+
     }
 }

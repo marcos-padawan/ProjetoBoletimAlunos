@@ -27,7 +27,7 @@ namespace ProjetoBoletimAlunos.Controllers
         {
             try
             {
-                var result = minhaLista.Where(x => x.Alunos.Nome.Contains(alunoNome) && x.Alunos.Sobrenome.Contains(alunoSobrenome) &&  x.Matérias.Descrição.Contains(materia)).ToList();
+                var result = minhaLista.Where(x => x.Alunos.Nome.Contains(alunoNome) && x.Alunos.Sobrenome.Contains(alunoSobrenome) &&  x.Materias.Descrição.Contains(materia)).ToList();
                 if (result.Count == 0)
                 {
                     return BadRequest(Message.Failure);
@@ -47,7 +47,7 @@ namespace ProjetoBoletimAlunos.Controllers
         {
             try
             {
-                var result = minhaLista.RemoveAll(x => x.Alunos.Nome == alunoNome && x.Alunos.Sobrenome == alunoSobrenome &&  x.Matérias.Descrição == materia);
+                var result = minhaLista.RemoveAll(x => x.Alunos.Nome == alunoNome && x.Alunos.Sobrenome == alunoSobrenome &&  x.Materias.Descrição == materia);
 
                 if (result == 0)
                     return BadRequest(Message.Failure);
@@ -67,7 +67,7 @@ namespace ProjetoBoletimAlunos.Controllers
             var result = new Result<List<Notas>>();
             try
             {
-                result.Data = minhaLista.Where(x => x.Alunos.Nome == alunoNome && x.Alunos.Sobrenome == alunoSobrenome &&  x.Matérias.Descrição == materia).ToList();
+                result.Data = minhaLista.Where(x => x.Alunos.Nome == alunoNome && x.Alunos.Sobrenome == alunoSobrenome &&  x.Materias.Descrição == materia).ToList();
                 result.Data.Select(s =>
                 {
                     s.Nota = novaNota; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o Notas pelo cpf

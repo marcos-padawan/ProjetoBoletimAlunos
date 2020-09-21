@@ -3,23 +3,22 @@ using ProjetoBoletimAlunos.Context.Models;
 using ProjetoBoletimAlunos.Utilidades;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ProjetoBoletimMaterias.Controllers
 {
     [ApiController]
-    [Route("Matéria")]
-    public class MatériaController : ControllerBase
+    [Route("Materia")]
+    public class MateriaController : ControllerBase
     {
 
         [HttpPost]
         [Route("AddMateria")]
-        public ActionResult PostMateria(Matéria materia)
+        public ActionResult PostMateria(Materia materia)
         {
-            var result = new Result<Matéria>();
+            var result = new Result<Materia>();
             try
             {
-                Utilidades<Matéria> auxiliar = new Utilidades<Matéria>();
+                Utilidades<Materia> auxiliar = new Utilidades<Materia>();
                 auxiliar.AddMateria(materia);
                 result.Error = false;
                 result.Message = Message.Success;
@@ -40,10 +39,10 @@ namespace ProjetoBoletimMaterias.Controllers
         [Route("BuscaMateriaPorDescricao")]
         public ActionResult GetMateria(string descricao)
         {
-            var result = new Result<List<Matéria>>();
+            var result = new Result<List<Materia>>();
             try
             {
-                Utilidades<Matéria> auxiliar = new Utilidades<Matéria>();
+                Utilidades<Materia> auxiliar = new Utilidades<Materia>();
                 result.Data = auxiliar.BuscarMateriaPorNome(descricao);
 
                 if (result.Data.Count == 0)
@@ -76,10 +75,10 @@ namespace ProjetoBoletimMaterias.Controllers
         [Route("DeleteMateria")]
         public ActionResult DeleteMateria(string descricao)
         {
-            var result = new Result<List<Matéria>>();
+            var result = new Result<List<Materia>>();
             try
             {
-                Utilidades<Matéria> auxiliar = new Utilidades<Matéria>();
+                Utilidades<Materia> auxiliar = new Utilidades<Materia>();
                 result.Message = auxiliar.DeletaMateria(descricao);
 
                 return Ok(result);
@@ -94,10 +93,10 @@ namespace ProjetoBoletimMaterias.Controllers
         [Route("UpdateMateria")]
         public ActionResult UpdateMateria(string descricaoMateria, string novoMateria, string novaSituacao)
         {
-            var result = new Result<List<Matéria>>();
+            var result = new Result<List<Materia>>();
             try
             {
-                Utilidades<Matéria> auxiliar = new Utilidades<Matéria>();
+                Utilidades<Materia> auxiliar = new Utilidades<Materia>();
                 result.Message = auxiliar.AlterarMateria(descricaoMateria, novoMateria, novaSituacao);
                 return Ok(result);
             }

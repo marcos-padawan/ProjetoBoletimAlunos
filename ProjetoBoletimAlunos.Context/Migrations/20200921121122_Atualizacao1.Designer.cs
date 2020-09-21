@@ -10,8 +10,8 @@ using ProjetoBoletimAlunos.Context;
 namespace ProjetoBoletimAlunos.Context.Migrations
 {
     [DbContext(typeof(BancoDeDadosContext))]
-    [Migration("20200919203324_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200921121122_Atualizacao1")]
+    partial class Atualizacao1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -77,33 +77,27 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                     b.ToTable("Cursos");
                 });
 
-            modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.MateriaAluno", b =>
+            modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.CursoMateria", b =>
                 {
-                    b.Property<int>("AlunoId")
+                    b.Property<int>("CursoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MatériaId")
+                    b.Property<int>("MateriaId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Nota")
-                        .HasColumnType("decimal(18,2)");
+                    b.HasKey("CursoId", "MateriaId");
 
-                    b.HasKey("AlunoId");
+                    b.HasIndex("MateriaId");
 
-                    b.HasIndex("MatériaId");
-
-                    b.ToTable("MateriaAlunos");
+                    b.ToTable("CursoMateria");
                 });
 
-            modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.Matéria", b =>
+            modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.Materia", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CursoId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("DataCadastro")
                         .HasColumnType("datetime2");
@@ -118,9 +112,25 @@ namespace ProjetoBoletimAlunos.Context.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CursoId");
+                    b.ToTable("Materias");
+                });
 
-                    b.ToTable("Matérias");
+            modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.MateriaAluno", b =>
+                {
+                    b.Property<int>("AlunoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MateriaId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Nota")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("AlunoId");
+
+                    b.HasIndex("MateriaId");
+
+                    b.ToTable("MateriaAlunos");
                 });
 
             modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.Notas", b =>
@@ -133,7 +143,7 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                     b.Property<int>("AlunoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MatériaId")
+                    b.Property<int>("MateriaId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Nota")
@@ -143,7 +153,7 @@ namespace ProjetoBoletimAlunos.Context.Migrations
 
                     b.HasIndex("AlunoId");
 
-                    b.HasIndex("MatériaId");
+                    b.HasIndex("MateriaId");
 
                     b.ToTable("Notas");
                 });
@@ -157,26 +167,32 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.CursoMateria", b =>
+                {
+                    b.HasOne("ProjetoBoletimAlunos.Context.Models.Curso", "Curso")
+                        .WithMany()
+                        .HasForeignKey("CursoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjetoBoletimAlunos.Context.Models.Materia", "Materia")
+                        .WithMany()
+                        .HasForeignKey("MateriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.MateriaAluno", b =>
                 {
                     b.HasOne("ProjetoBoletimAlunos.Context.Models.Aluno", "Aluno")
-                        .WithMany("Matérias")
+                        .WithMany("Materias")
                         .HasForeignKey("AlunoId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ProjetoBoletimAlunos.Context.Models.Matéria", "Matéria")
+                    b.HasOne("ProjetoBoletimAlunos.Context.Models.Materia", "Materia")
                         .WithMany("Alunos")
-                        .HasForeignKey("MatériaId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProjetoBoletimAlunos.Context.Models.Matéria", b =>
-                {
-                    b.HasOne("ProjetoBoletimAlunos.Context.Models.Curso", "Curso")
-                        .WithMany("Matérias")
-                        .HasForeignKey("CursoId")
+                        .HasForeignKey("MateriaId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -189,9 +205,9 @@ namespace ProjetoBoletimAlunos.Context.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ProjetoBoletimAlunos.Context.Models.Matéria", "Matérias")
+                    b.HasOne("ProjetoBoletimAlunos.Context.Models.Materia", "Materias")
                         .WithMany("Notas")
-                        .HasForeignKey("MatériaId")
+                        .HasForeignKey("MateriaId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
