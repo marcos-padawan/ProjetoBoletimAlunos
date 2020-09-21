@@ -33,7 +33,7 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
             StringContent content = new StringContent(novaNotaJson, Encoding.UTF8, "application/json");
 
             var httpClient = new HttpClient();
-            var URL = "http://localhost:5000/BoletimUniversidadePDWN/PostNotas";.
+            var URL = "https://localhost:44306/Notas/DeleteNotas";
             var resultRequest = httpClient.PostAsync($"{URL}", content);
             resultRequest.Wait();
 

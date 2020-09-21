@@ -160,6 +160,7 @@
     <Compile Include="TelasProfessor\MenuGerenciarNotas.Designer.cs">
       <DependentUpon>MenuGerenciarNotas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades.cs" />
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>

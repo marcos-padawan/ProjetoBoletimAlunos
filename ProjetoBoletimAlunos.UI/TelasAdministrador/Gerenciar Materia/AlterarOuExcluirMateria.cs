@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using ProjetoBoletimAlunos.Models;
+using System;
+using System.Net.Http;
 using System.Windows.Forms;
 
 namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
@@ -15,6 +11,27 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
         public Form_AlterarOuExcluirMateria()
         {
             InitializeComponent();
+        }
+
+        private void btn_BuscarMateria_Click(object sender, EventArgs e)
+        {
+            var httpClient = new HttpClient();
+            var URL = "https://localhost:44306/Materia/BuscaMateriaPorDescricao";
+            var resultRequest = httpClient.GetAsync(URL);
+            resultRequest.Wait();
+
+            var result = resultRequest.Result.Content.ReadAsStringAsync();
+            result.Wait();
+
+            var data = JsonConvert.DeserializeObject<Materia>(result.Result);
+            //List<Materia> lista = BuscarMateriaPorNome(txt_DescricaoMateriaBuscar.Text);
+
+           // foreach (var pokemon in data)
+            {
+           //     lista.Add(pokemon);
+            }
+
+            
         }
     }
 }

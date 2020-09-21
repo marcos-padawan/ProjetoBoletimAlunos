@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using Newtonsoft.Json;
+using ProjetoBoletimAlunos.Models;
+using System;
+using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Curso
@@ -18,6 +15,30 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Curso
 
             Cmb_SituacaoCurso.Items.Add("Ativo");
             Cmb_SituacaoCurso.Items.Add("Inativo");
+        }
+
+        private void btn_SalvarRegistroCurso_Click(object sender, EventArgs e)
+        {
+            Curso novoCurso = new Curso()
+            {
+                NomeCurso = txt_NomeCurso.Text,
+                Situação = Cmb_SituacaoCurso.Text
+            };
+            var novoCursoJson = JsonConvert.SerializeObject(novoCurso);
+            StringContent content = new StringContent(novoCursoJson, Encoding.UTF8, "application/json");
+
+            var httpClient = new HttpClient();
+            var URL = "https://localhost:44306/Curso/AddCurso";
+            var resultRequest = httpClient.PostAsync($"{URL}", content);
+            resultRequest.Wait();
+
+            var result = resultRequest.Result.Content.ReadAsStringAsync();
+            result.Wait();
+
+            MessageBox.Show("Deu boa campeão!");
+
+            txt_NomeCurso.Text = "";
+            Cmb_SituacaoCurso.Text = "";
         }
     }
 }

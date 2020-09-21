@@ -94,6 +94,7 @@
             this.btn_BuscarMateria.TabIndex = 4;
             this.btn_BuscarMateria.Text = "BUSCAR";
             this.btn_BuscarMateria.UseVisualStyleBackColor = false;
+            this.btn_BuscarMateria.Click += new System.EventHandler(this.btn_BuscarMateria_Click);
             // 
             // label3
             // 

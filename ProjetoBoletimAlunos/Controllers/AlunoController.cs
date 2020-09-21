@@ -12,15 +12,31 @@ namespace ProjetoBoletimAlunos.Controllers
     [Route("Aluno")]
     public class AlunoController : ControllerBase
     {
-      
+
         public static List<Aluno> minhaLista = new List<Aluno>();
 
         [HttpPost]
-        [Route ("AddAluno")]
-        public ActionResult PostAluno(Aluno aluno)
+        [Route("AddAluno")]
+        public ActionResult AddAluno(Aluno aluno)
         {
-            minhaLista.Add(aluno);
-            return Ok(minhaLista);
+            var result = new Result<Aluno>();
+            try
+            {
+                Utilidades<Aluno> auxiliar = new Utilidades<Aluno>();
+                auxiliar.AddAluno(aluno);
+                result.Error = false;
+                result.Message = Message.Success;
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                result.Error = true;
+                result.Message = Message.Failure + ex.Message;
+                result.Status = System.Net.HttpStatusCode.InternalServerError;
+
+                return NotFound(result);
+            }
         }
 
         [HttpGet]
@@ -56,7 +72,7 @@ namespace ProjetoBoletimAlunos.Controllers
                 else
                     return Ok(Message.Failure);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return BadRequest(Message.Failure);
             }

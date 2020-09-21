@@ -60,7 +60,7 @@
             // txt_SituacaoMateria
             // 
             this.txt_SituacaoMateria.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_SituacaoMateria.Location = new System.Drawing.Point(38, 122);
+            this.txt_SituacaoMateria.Location = new System.Drawing.Point(38, 133);
             this.txt_SituacaoMateria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_SituacaoMateria.Name = "txt_SituacaoMateria";
             this.txt_SituacaoMateria.Size = new System.Drawing.Size(327, 34);
@@ -71,7 +71,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(38, 89);
+            this.label3.Location = new System.Drawing.Point(38, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(248, 28);
             this.label3.TabIndex = 0;
@@ -81,10 +81,10 @@
             // 
             this.btn_SalvarNovaMateria.BackColor = System.Drawing.Color.Chartreuse;
             this.btn_SalvarNovaMateria.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btn_SalvarNovaMateria.Location = new System.Drawing.Point(37, 206);
+            this.btn_SalvarNovaMateria.Location = new System.Drawing.Point(37, 196);
             this.btn_SalvarNovaMateria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_SalvarNovaMateria.Name = "btn_SalvarNovaMateria";
-            this.btn_SalvarNovaMateria.Size = new System.Drawing.Size(328, 34);
+            this.btn_SalvarNovaMateria.Size = new System.Drawing.Size(328, 44);
             this.btn_SalvarNovaMateria.TabIndex = 3;
             this.btn_SalvarNovaMateria.Text = "Salvar Novo Registro";
             this.btn_SalvarNovaMateria.UseVisualStyleBackColor = false;

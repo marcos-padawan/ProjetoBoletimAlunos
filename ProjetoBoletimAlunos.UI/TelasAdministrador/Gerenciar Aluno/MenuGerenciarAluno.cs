@@ -9,7 +9,7 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Aluno
         {
             InitializeComponent();
         }
-        private void btn_AddAluno_Click(object sender, EventArgs e)
+        private void btn_AddAluno_Click_1(object sender, EventArgs e)
         {
             var addAluno = new Form_AdicionarAluno();
             this.Hide();
@@ -24,5 +24,7 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Aluno
             alterarExcluirAluno.ShowDialog();
             this.Show();
         }
+
+       
     }
 }

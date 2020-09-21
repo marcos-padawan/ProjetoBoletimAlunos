@@ -101,6 +101,15 @@ namespace ProjetoBoletimAlunos.Utilidades
                 return meuBanco.Cursos.Where(x => x.NomeCurso.Equals(nomeCurso)).ToList();
             }
         }
+        public List<Curso> ListarTodosCursos()
+        {
+            meuBanco = new BancoDeDadosContext();
+            using (meuBanco)
+            {
+                return meuBanco.Cursos.ToList();
+            }
+        }
+
         //-----ALTERAÇÃO DE ITENS DO BANCO-------  UPDATE
         public string AlterarMateria(string descricao, string novaDescricao, string novoStatus)
         {

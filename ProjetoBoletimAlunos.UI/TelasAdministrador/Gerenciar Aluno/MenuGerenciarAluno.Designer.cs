@@ -56,6 +56,7 @@
             this.btn_AddAluno.TabIndex = 1;
             this.btn_AddAluno.Text = "Adicionar Novo Aluno";
             this.btn_AddAluno.UseVisualStyleBackColor = false;
+            this.btn_AddAluno.Click += new System.EventHandler(this.btn_AddAluno_Click_1);
             // 
             // label1
             // 

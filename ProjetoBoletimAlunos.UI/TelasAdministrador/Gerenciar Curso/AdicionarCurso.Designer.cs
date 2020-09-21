@@ -48,6 +48,7 @@
             this.btn_SalvarRegistroCurso.TabIndex = 3;
             this.btn_SalvarRegistroCurso.Text = "Salvar Novo Registro";
             this.btn_SalvarRegistroCurso.UseVisualStyleBackColor = false;
+            this.btn_SalvarRegistroCurso.Click += new System.EventHandler(this.btn_SalvarRegistroCurso_Click);
             // 
             // label1
             // 

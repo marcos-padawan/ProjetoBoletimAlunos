@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoBoletimAlunos.Context;
 
 namespace ProjetoBoletimAlunos.Context.Migrations
 {
     [DbContext(typeof(BancoDeDadosContext))]
-    partial class BancoDeDadosContextModelSnapshot : ModelSnapshot
+    [Migration("20200921181434_Atualizacao2")]
+    partial class Atualizacao2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

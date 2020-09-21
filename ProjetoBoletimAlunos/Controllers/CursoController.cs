@@ -18,9 +18,26 @@ namespace ProjetoBoletimCursos.Controllers
         [Route("AddCurso")]
         public ActionResult PostCurso(Curso curso)
         {
-            minhaLista.Add(curso);
-            return Ok(minhaLista);
+            var result = new Result<Curso>();
+            try
+            {
+                Utilidades<Curso> auxiliar = new Utilidades<Curso>();
+                auxiliar.AddCurso(curso);
+                result.Error = false;
+                result.Message = Message.Success;
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                result.Error = true;
+                result.Message = Message.Failure + ex.Message;
+                result.Status = System.Net.HttpStatusCode.InternalServerError;
+
+                return NotFound(result);
+            }
         }
+      
 
         [HttpGet]
         [Route("BuscaCursoPorNome")]

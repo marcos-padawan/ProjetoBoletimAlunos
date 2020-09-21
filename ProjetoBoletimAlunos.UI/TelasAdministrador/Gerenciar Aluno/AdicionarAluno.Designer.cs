@@ -34,11 +34,11 @@
             this.txt_SobrenomeAluno = new System.Windows.Forms.TextBox();
             this.txt_CpfAluno = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_CursoAluno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_NascimentoAluno = new System.Windows.Forms.MonthCalendar();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_SalvarRegistroAluno = new System.Windows.Forms.Button();
+            this.Cmb_Cursos = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -101,15 +101,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "CPF (somente números):";
             // 
-            // txt_CursoAluno
-            // 
-            this.txt_CursoAluno.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_CursoAluno.Location = new System.Drawing.Point(58, 151);
-            this.txt_CursoAluno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_CursoAluno.Name = "txt_CursoAluno";
-            this.txt_CursoAluno.Size = new System.Drawing.Size(221, 34);
-            this.txt_CursoAluno.TabIndex = 1;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -150,6 +141,16 @@
             this.btn_SalvarRegistroAluno.TabIndex = 3;
             this.btn_SalvarRegistroAluno.Text = "Salvar Novo Registro";
             this.btn_SalvarRegistroAluno.UseVisualStyleBackColor = false;
+            this.btn_SalvarRegistroAluno.Click += new System.EventHandler(this.btn_SalvarRegistroAluno_Click);
+            // 
+            // Cmb_Cursos
+            // 
+            this.Cmb_Cursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cmb_Cursos.FormattingEnabled = true;
+            this.Cmb_Cursos.Location = new System.Drawing.Point(58, 154);
+            this.Cmb_Cursos.Name = "Cmb_Cursos";
+            this.Cmb_Cursos.Size = new System.Drawing.Size(221, 33);
+            this.Cmb_Cursos.TabIndex = 4;
             // 
             // Form_AdicionarAluno
             // 
@@ -157,11 +158,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(1022, 308);
+            this.Controls.Add(this.Cmb_Cursos);
             this.Controls.Add(this.btn_SalvarRegistroAluno);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_NascimentoAluno);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txt_CursoAluno);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_CpfAluno);
             this.Controls.Add(this.txt_SobrenomeAluno);
@@ -184,10 +185,10 @@
         private System.Windows.Forms.TextBox txt_SobrenomeAluno;
         private System.Windows.Forms.TextBox txt_CpfAluno;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_CursoAluno;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MonthCalendar txt_NascimentoAluno;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_SalvarRegistroAluno;
+        private System.Windows.Forms.ComboBox Cmb_Cursos;
     }
 }
