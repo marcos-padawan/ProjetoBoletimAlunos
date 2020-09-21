@@ -12,23 +12,10 @@ namespace ProjetoBoletimCursos.Controllers
     [Route("Curso")]
     public class CursoController : ControllerBase
     {
-        [HttpGet]
-        [Route("GetCurso")]
-        public ActionResult GetCurso()
-        {
-            var result = new Curso()
-            {
-                NomeCurso = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o Curso que quer adicionar
-                Situação = "",
-                Matérias = { },
-            };
-            return Ok(result);
-        }
-
         public static List<Curso> minhaLista = new List<Curso>();
 
         [HttpPost]
-        [Route("PostCurso")]
+        [Route("AddCurso")]
         public ActionResult PostCurso(Curso curso)
         {
             minhaLista.Add(curso);

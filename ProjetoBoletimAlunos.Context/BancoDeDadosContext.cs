@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjetoBoletimAlunos.Context.Models;
-using DbContext = Microsoft.EntityFrameworkCore.DbContext;
-
 
 namespace ProjetoBoletimAlunos.Context
 {
@@ -64,11 +62,11 @@ namespace ProjetoBoletimAlunos.Context
            .OnDelete(DeleteBehavior.Restrict);
 
         }
-        public Microsoft.EntityFrameworkCore.DbSet<Aluno> Alunos { get; set; }
-        public Microsoft.EntityFrameworkCore.DbSet<Curso> Cursos { get; set; }
-        public Microsoft.EntityFrameworkCore.DbSet<Matéria> Matérias { get; set; }
-        public Microsoft.EntityFrameworkCore.DbSet<Notas> Notas { get; set; }
-        public Microsoft.EntityFrameworkCore.DbSet<MateriaAluno> MateriaAlunos { get; set; }
+        public DbSet<Aluno> Alunos { get; set; }
+        public DbSet<Curso> Cursos { get; set; }
+        public DbSet<Matéria> Matérias { get; set; }
+        public DbSet<Notas> Notas { get; set; }
+        public DbSet<MateriaAluno> MateriaAlunos { get; set; }
 
     }
 }

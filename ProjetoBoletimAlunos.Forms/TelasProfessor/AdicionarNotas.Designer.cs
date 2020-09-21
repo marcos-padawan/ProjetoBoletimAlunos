@@ -51,6 +51,7 @@
             this.btn_AdicionarNota.TabIndex = 0;
             this.btn_AdicionarNota.Text = "Adicionar Nota";
             this.btn_AdicionarNota.UseVisualStyleBackColor = false;
+            this.btn_AdicionarNota.Click += new System.EventHandler(this.btn_AdicionarNota_Click);
             // 
             // label1
             // 
@@ -84,7 +85,6 @@
             this.label3.Size = new System.Drawing.Size(156, 28);
             this.label3.TabIndex = 2;
             this.label3.Text = "Nome do Aluno:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txt_NomeAluno
             // 
@@ -104,7 +104,6 @@
             this.label4.Size = new System.Drawing.Size(83, 28);
             this.label4.TabIndex = 2;
             this.label4.Text = "Matéria:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txt_MateriaAluno
             // 
@@ -113,7 +112,6 @@
             this.txt_MateriaAluno.Name = "txt_MateriaAluno";
             this.txt_MateriaAluno.Size = new System.Drawing.Size(189, 34);
             this.txt_MateriaAluno.TabIndex = 3;
-            this.txt_MateriaAluno.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txt_NotaAluno
             // 
@@ -122,7 +120,6 @@
             this.txt_NotaAluno.Name = "txt_NotaAluno";
             this.txt_NotaAluno.Size = new System.Drawing.Size(189, 34);
             this.txt_NotaAluno.TabIndex = 3;
-            this.txt_NotaAluno.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label5
             // 
@@ -134,7 +131,6 @@
             this.label5.Size = new System.Drawing.Size(60, 28);
             this.label5.TabIndex = 2;
             this.label5.Text = "Nota:";
-            this.label5.Click += new System.EventHandler(this.label4_Click);
             // 
             // txt_SobrenomeAluno
             // 
@@ -154,7 +150,6 @@
             this.label6.Size = new System.Drawing.Size(204, 28);
             this.label6.TabIndex = 2;
             this.label6.Text = "Sobrenome do Aluno:";
-            this.label6.Click += new System.EventHandler(this.label3_Click);
             // 
             // form_AdicionarNotas
             // 

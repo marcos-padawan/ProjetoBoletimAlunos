@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,7 +35,7 @@ namespace ProjetoBoletimAlunos
                 });
             });
             //-----------
-            services.AddDbContext<BancoDeDadosContext>(op => op.UseSqlServer(Configuration.GetConnectionString("sqlConnection")));
+            services.AddDbContext<BancoDeDadosContext>(op => op.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,8 +47,6 @@ namespace ProjetoBoletimAlunos
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
 
             app.UseRouting();
 

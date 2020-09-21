@@ -11,23 +11,10 @@ namespace ProjetoBoletimAlunos.Controllers
     [Route("Notas")]
     public class NotasController : ControllerBase
     {
-        [HttpGet]
-        [Route("GetNotas")]
-        public ActionResult GetNotas()
-        {
-            var result = new Notas()
-            {
-                Alunos = { },                  // aqui tenho que colocar o valor do form pro usuário preencher o Notas que quer adicionar
-                Matérias = { },
-                Nota = 0
-            };
-            return Ok(result);
-        }
-
         public static List<Notas> minhaLista = new List<Notas>();
 
         [HttpPost]
-        [Route("PostNotas")]
+        [Route("AddNotas")]
         public ActionResult PostNotas(Notas notas)
         {
             minhaLista.Add(notas);

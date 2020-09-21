@@ -13,25 +13,10 @@ namespace ProjetoBoletimAlunos.Controllers
     public class AlunoController : ControllerBase
     {
       
-        [HttpGet]
-        [Route("GetAluno")]
-        public ActionResult GetAluno()
-        {
-            var result = new Aluno()
-            {
-                Nome = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o aluno que quer adicionar
-                Sobrenome = "",             
-                Curso = { },
-                Cpf = "",
-                DataNascimento = DateTime.Parse("29/11/1995")
-            };
-            return Ok(result);
-        }
-
         public static List<Aluno> minhaLista = new List<Aluno>();
 
         [HttpPost]
-        [Route ("PostAluno")]
+        [Route ("AddAluno")]
         public ActionResult PostAluno(Aluno aluno)
         {
             minhaLista.Add(aluno);

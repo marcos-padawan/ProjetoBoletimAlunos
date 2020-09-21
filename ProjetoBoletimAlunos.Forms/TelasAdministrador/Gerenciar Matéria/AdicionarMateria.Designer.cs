@@ -85,6 +85,7 @@
             this.btn_SalvarNovaMateria.TabIndex = 3;
             this.btn_SalvarNovaMateria.Text = "Salvar Novo Registro";
             this.btn_SalvarNovaMateria.UseVisualStyleBackColor = false;
+            this.btn_SalvarNovaMateria.Click += new System.EventHandler(this.btn_SalvarNovaMateria_Click);
             // 
             // label2
             // 

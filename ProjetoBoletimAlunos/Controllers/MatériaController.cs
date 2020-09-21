@@ -9,48 +9,66 @@ namespace ProjetoBoletimMaterias.Controllers
 {
     [ApiController]
     [Route("Matéria")]
-    public class MatériaController : ControllerBase 
+    public class MatériaController : ControllerBase
     {
-        [HttpGet]
-        [Route("GetMateria")]
-        public ActionResult GetMateria()
-        {
-            var result = new Matéria()
-            {
-                Descrição = "",                  // aqui tenho que colocar o valor do form pro usuário preencher o Materia que quer adicionar
-                Situação = "",
-                DataCadastro = DateTime.Parse("10/09/2018")
-            };
-            return Ok(result);
-        }
-
-        public static List<Matéria> minhaLista = new List<Matéria>();
 
         [HttpPost]
-        [Route("PostMateria")]
+        [Route("AddMateria")]
         public ActionResult PostMateria(Matéria materia)
         {
-            minhaLista.Add(materia);
-            return Ok(minhaLista);
+            var result = new Result<Matéria>();
+            try
+            {
+                Utilidades<Matéria> auxiliar = new Utilidades<Matéria>();
+                auxiliar.AddMateria(materia);
+                result.Error = false;
+                result.Message = Message.Success;
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                result.Error = true;
+                result.Message = Message.Failure + ex.Message;
+                result.Status = System.Net.HttpStatusCode.InternalServerError;
+
+                return NotFound(result);
+            }
         }
 
         [HttpGet]
         [Route("BuscaMateriaPorDescricao")]
         public ActionResult GetMateria(string descricao)
         {
+            var result = new Result<List<Matéria>>();
             try
             {
-                var result = minhaLista.Where(x => x.Descrição.Contains(descricao)).ToList();
-                if (result.Count == 0)
+                Utilidades<Matéria> auxiliar = new Utilidades<Matéria>();
+                result.Data = auxiliar.BuscarMateriaPorNome(descricao);
+
+                if (result.Data.Count == 0)
                 {
-                    return BadRequest(Message.Failure);
+                    result.Error = true;
+                    result.Message = Message.Failure;
+                    result.Status = System.Net.HttpStatusCode.InternalServerError;
+
+                    return BadRequest(result);
                 }
                 else
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+                    result.Status = System.Net.HttpStatusCode.InternalServerError;
                     return Ok(result);
+                }
             }
             catch (Exception ex)
             {
-                return NotFound(Message.Failure + "****" + ex.Message);
+                result.Error = true;
+                result.Message = Message.Failure + ex.Message;
+                result.Status = System.Net.HttpStatusCode.InternalServerError;
+
+                return NotFound(result);
             }
         }
 
@@ -58,41 +76,34 @@ namespace ProjetoBoletimMaterias.Controllers
         [Route("DeleteMateria")]
         public ActionResult DeleteMateria(string descricao)
         {
+            var result = new Result<List<Matéria>>();
             try
             {
-                var result = minhaLista.RemoveAll(x => x.Descrição == descricao);
+                Utilidades<Matéria> auxiliar = new Utilidades<Matéria>();
+                result.Message = auxiliar.DeletaMateria(descricao);
 
-                if (result == 0)
-                    return BadRequest(Message.Failure);
-                else
-                    return Ok(Message.Failure);
+                return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(Message.Failure);
+                return BadRequest(ex.Message);
             }
         }
 
         [HttpPut]
         [Route("UpdateMateria")]
-        public ActionResult UpdateMateria(string descricaoMateria, string novoMateria)
+        public ActionResult UpdateMateria(string descricaoMateria, string novoMateria, string novaSituacao)
         {
             var result = new Result<List<Matéria>>();
             try
             {
-                result.Data = minhaLista.Where(x => x.Descrição == descricaoMateria).ToList();
-                result.Data.Select(s =>
-                {
-                    s.Descrição = novoMateria; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o Materia pelo cpf
-                    return s;
-                }).ToList();
+                Utilidades<Matéria> auxiliar = new Utilidades<Matéria>();
+                result.Message = auxiliar.AlterarMateria(descricaoMateria, novoMateria, novaSituacao);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                result.Error = true;
-                result.Message = ex.Message;
-                return BadRequest(result);
+                return BadRequest(ex.Message);
             }
         }
     }
