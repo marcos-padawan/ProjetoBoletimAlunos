@@ -1,6 +1,6 @@
-﻿using ProjetoBoletimAlunos.Context.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ProjetoBoletimAlunos.Models;
 
 namespace ProjetoBoletimAlunos.Context.Types
 {

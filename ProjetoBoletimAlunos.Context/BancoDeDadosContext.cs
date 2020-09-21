@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProjetoBoletimAlunos.Context.Models;
+using ProjetoBoletimAlunos.Models;
 
 namespace ProjetoBoletimAlunos.Context
 {

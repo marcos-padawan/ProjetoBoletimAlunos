@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using ProjetoBoletimAlunos.Context.Models;
+using ProjetoBoletimAlunos.Models;
 using System;
 using System.Net.Http;
 using System.Text;

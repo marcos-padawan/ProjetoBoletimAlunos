@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProjetoBoletimAlunos.Context.Models
+namespace ProjetoBoletimAlunos.Models
 {
     public class MateriaAluno
     {

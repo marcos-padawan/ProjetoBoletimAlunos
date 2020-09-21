@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Net.Http;
 using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-using ProjetoBoletimAlunos.Context.Models;
-using ProjetoBoletimAlunos.Utilidades;
+using ProjetoBoletimAlunos.Models;
 using Message = ProjetoBoletimAlunos.Utilidades.Message;
 
 namespace ProjetoBoletimAlunos.Forms.TelasAdministrador.Gerenciar_Matéria

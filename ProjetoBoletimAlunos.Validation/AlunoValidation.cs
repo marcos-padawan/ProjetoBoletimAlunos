@@ -1,7 +1,5 @@
 ﻿using FluentValidation;
-using ProjetoBoletimAlunos.Context.Models;
-
-
+using ProjetoBoletimAlunos.Models;
 
 namespace ProjetoBoletimAlunos.Validations
 {

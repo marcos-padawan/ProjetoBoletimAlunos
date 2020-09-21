@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ProjetoBoletimAlunos.Context.Models
+namespace ProjetoBoletimAlunos.Models
 {
     public class Aluno
     {

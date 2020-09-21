@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProjetoBoletimAlunos.Context\ProjetoBoletimAlunos.Context.csproj" />
+    <ProjectReference Include="..\ProjetoBoletimAlunos.Models\ProjetoBoletimAlunos.Models.csproj" />
     <ProjectReference Include="..\ProjetoBoletimAlunos.Utilidades\ProjetoBoletimAlunos.Utilidades.csproj" />
   </ItemGroup>
 

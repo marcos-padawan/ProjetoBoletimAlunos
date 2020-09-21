@@ -1,5 +1,5 @@
 ﻿using ProjetoBoletimAlunos.Context;
-using ProjetoBoletimAlunos.Context.Models;
+using ProjetoBoletimAlunos.Models;
 using System.Collections.Generic;
 using System.Linq;
 

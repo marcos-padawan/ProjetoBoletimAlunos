@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ProjetoBoletimAlunos.Context.Models;
+using ProjetoBoletimAlunos.Models;
 using ProjetoBoletimAlunos.Utilidades;
 using System;
 using System.Collections.Generic;
