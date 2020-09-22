@@ -38,24 +38,61 @@ namespace ProjetoBoletimCursos.Controllers
             }
         }
       
-
         [HttpGet]
         [Route("BuscaCursoPorNome")]
         public ActionResult GetCurso(string nome)
         {
+            var result = new Result<List<Curso>>();
+            
             try
             {
-                var result = minhaLista.Where(x => x.NomeCurso.Contains(nome)).ToList();
-                if (result.Count == 0)
+                Utilidades<Curso> auxiliar = new Utilidades<Curso>();
+                result.Data= auxiliar.BuscarCursoPorNome(nome);
+                if(result.Data is null)
                 {
-                    return BadRequest(Message.Failure);
+                    result.Error = true;
+                    result.Message = Message.Failure;
                 }
                 else
-                    return Ok(result);
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+                }
+
+                return Ok(result);
             }
             catch (Exception ex)
             {
                 return NotFound(Message.Failure + "****" + ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("ListarTodosCursos")]
+        public ActionResult ListarCurso()
+        {
+            var result = new Result<List<Curso>>();
+
+            try
+            {
+                Utilidades<Curso> auxiliar = new Utilidades<Curso>();
+                result.Data = auxiliar.ListarTodosCursos();
+                if (result.Data is null)
+                {
+                    result.Error = true;
+                    result.Message = Message.Failure;
+                }
+                else
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound($"{Message.Failure} **** {ex.Message}");
             }
         }
 

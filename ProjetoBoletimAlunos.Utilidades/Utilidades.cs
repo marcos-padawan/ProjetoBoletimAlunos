@@ -98,15 +98,32 @@ namespace ProjetoBoletimAlunos.Utilidades
             meuBanco = new BancoDeDadosContext();
             using (meuBanco)
             {
-                return meuBanco.Cursos.Where(x => x.NomeCurso.Equals(nomeCurso)).ToList();
+                return meuBanco.Cursos.Where(x => x.NomeCurso.Contains(nomeCurso)).ToList();
             }
         }
+        //--------------LISTAR TODOS OS ITEMS -------------------
         public List<Curso> ListarTodosCursos()
         {
             meuBanco = new BancoDeDadosContext();
             using (meuBanco)
             {
                 return meuBanco.Cursos.ToList();
+            }
+        }
+        public List<Aluno> ListarTodosAlunos()
+        {
+            meuBanco = new BancoDeDadosContext();
+            using (meuBanco)
+            {
+                return meuBanco.Alunos.ToList();
+            }
+        }
+        public List<Materia> ListarTodasMaterias()
+        {
+            meuBanco = new BancoDeDadosContext();
+            using (meuBanco)
+            {
+                return meuBanco.Materias.ToList();
             }
         }
 
@@ -127,8 +144,6 @@ namespace ProjetoBoletimAlunos.Utilidades
                 else
                     return Message.Failure;
             }
-            
-        
         }
 
         //-----EXCLUSÃO DE ITENS DO BANCO-------  REMOVE

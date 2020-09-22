@@ -10,7 +10,6 @@ namespace ProjetoBoletimMaterias.Controllers
     [Route("Materia")]
     public class MateriaController : ControllerBase
     {
-
         [HttpPost]
         [Route("AddMateria")]
         public ActionResult PostMateria(Materia materia)
@@ -57,17 +56,47 @@ namespace ProjetoBoletimMaterias.Controllers
                 {
                     result.Error = false;
                     result.Message = Message.Success;
-                    result.Status = System.Net.HttpStatusCode.InternalServerError;
+
                     return Ok(result);
                 }
             }
             catch (Exception ex)
             {
                 result.Error = true;
-                result.Message = Message.Failure + ex.Message;
+                result.Message = $"{Message.Failure} - {ex.Message}";
                 result.Status = System.Net.HttpStatusCode.InternalServerError;
 
                 return NotFound(result);
+            }
+        }
+
+
+        [HttpGet]
+        [Route("ListarTodasMaterias")]
+        public ActionResult ListarMaterias()
+        {
+            var result = new Result<List<Materia>>();
+
+            try
+            {
+                Utilidades<Materia> auxiliar = new Utilidades<Materia>();
+                result.Data = auxiliar.ListarTodasMaterias();
+                if (result.Data is null)
+                {
+                    result.Error = true;
+                    result.Message = Message.Failure;
+                }
+                else
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound($"{Message.Failure} **** {ex.Message}");
             }
         }
 

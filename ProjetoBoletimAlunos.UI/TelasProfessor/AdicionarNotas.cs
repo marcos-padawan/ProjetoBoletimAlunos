@@ -18,15 +18,17 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
         public Form_AdicionarNotas()
         {
             InitializeComponent();
+            ListarAlunos();
+            //ListarMaterias();
         }
         private void btn_AdicionarNota_Click(object sender, EventArgs e)
         {
-            
+
             Notas novaNota = new Notas();
 
             novaNota.Nota = Convert.ToDecimal(txt_NotaAluno.Text);
-            novaNota.Alunos.Nome = txt_NomeAluno.Text;
-            novaNota.Alunos.Sobrenome = txt_SobrenomeAluno.Text;
+            //novaNota.Alunos.Nome = txt_NomeAluno.Text;
+            //novaNota.Alunos.Sobrenome = txt_SobrenomeAluno.Text;
             novaNota.Materias.Descrição = txt_MateriaAluno.Text;
 
             var novaNotaJson = JsonConvert.SerializeObject(novaNota);
@@ -44,8 +46,7 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
 
             txt_MateriaAluno.Text = "";
             txt_NotaAluno.Text = "";
-            txt_NomeAluno.Text = "";
-            txt_SobrenomeAluno.Text = "";
+            Cmb_NomeCompleto.Text = "";
         }
 
         private void Btn_Voltar_Click(object sender, EventArgs e)
@@ -56,6 +57,27 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
         private void Btn_Sair_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+        public void ListarAlunos()
+        {
+            var httpClient = new HttpClient();
+            var URL = "https://localhost:44306/Aluno/ListarTodosAlunos";
+            var resultRequest = httpClient.GetAsync($"{URL}");
+            resultRequest.Wait();
+
+            var result = resultRequest.Result.Content.ReadAsStringAsync();
+            result.Wait();
+
+            var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
+
+            foreach (var item in data)
+            {
+                Cmb_NomeCompleto.Items.Add($"{item.Id} - {item.Nome} {item.Sobrenome}");
+            }
+        }
+        private class Root
+        {
+            public List<Aluno> Data { get; set; }
         }
     }
 }

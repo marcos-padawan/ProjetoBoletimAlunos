@@ -12,9 +12,6 @@ namespace ProjetoBoletimAlunos.Controllers
     [Route("Aluno")]
     public class AlunoController : ControllerBase
     {
-
-        public static List<Aluno> minhaLista = new List<Aluno>();
-
         [HttpPost]
         [Route("AddAluno")]
         public ActionResult AddAluno(Aluno aluno)
@@ -38,7 +35,7 @@ namespace ProjetoBoletimAlunos.Controllers
                 return NotFound(result);
             }
         }
-
+        public static List<Aluno> minhaLista = new List<Aluno>();
         [HttpGet]
         [Route("BuscaAlunoPorNome")]
         public ActionResult GetAluno(string nome, string sobrenome)
@@ -56,6 +53,35 @@ namespace ProjetoBoletimAlunos.Controllers
             catch (Exception ex)
             {
                 return NotFound(Message.Failure + "****" + ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("ListarTodosAlunos")]
+        public ActionResult ListarAlunos()
+        {
+            var result = new Result<List<Aluno>>();
+
+            try
+            {
+                Utilidades<Aluno> auxiliar = new Utilidades<Aluno>();
+                result.Data = auxiliar.ListarTodosAlunos();
+                if (result.Data is null)
+                {
+                    result.Error = true;
+                    result.Message = Message.Failure;
+                }
+                else
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound($"{Message.Failure} **** {ex.Message}");
             }
         }
 

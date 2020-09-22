@@ -32,15 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_NomeAluno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_MateriaAluno = new System.Windows.Forms.TextBox();
             this.txt_NotaAluno = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txt_SobrenomeAluno = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.Btn_Sair = new System.Windows.Forms.Button();
             this.Btn_Voltar = new System.Windows.Forms.Button();
+            this.Cmb_NomeCompleto = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn_AdicionarNota
@@ -83,20 +81,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(99, 70);
+            this.label3.Location = new System.Drawing.Point(24, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(156, 28);
             this.label3.TabIndex = 2;
             this.label3.Text = "Nome do Aluno:";
-            // 
-            // txt_NomeAluno
-            // 
-            this.txt_NomeAluno.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_NomeAluno.Location = new System.Drawing.Point(99, 100);
-            this.txt_NomeAluno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_NomeAluno.Name = "txt_NomeAluno";
-            this.txt_NomeAluno.Size = new System.Drawing.Size(189, 34);
-            this.txt_NomeAluno.TabIndex = 3;
             // 
             // label4
             // 
@@ -138,26 +127,6 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Nota:";
             // 
-            // txt_SobrenomeAluno
-            // 
-            this.txt_SobrenomeAluno.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_SobrenomeAluno.Location = new System.Drawing.Point(99, 175);
-            this.txt_SobrenomeAluno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_SobrenomeAluno.Name = "txt_SobrenomeAluno";
-            this.txt_SobrenomeAluno.Size = new System.Drawing.Size(189, 34);
-            this.txt_SobrenomeAluno.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label6.Location = new System.Drawing.Point(99, 145);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(204, 28);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Sobrenome do Aluno:";
-            // 
             // Btn_Sair
             // 
             this.Btn_Sair.BackColor = System.Drawing.Color.OrangeRed;
@@ -184,21 +153,28 @@
             this.Btn_Voltar.UseVisualStyleBackColor = false;
             this.Btn_Voltar.Click += new System.EventHandler(this.Btn_Voltar_Click);
             // 
+            // Cmb_NomeCompleto
+            // 
+            this.Cmb_NomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cmb_NomeCompleto.FormattingEnabled = true;
+            this.Cmb_NomeCompleto.Location = new System.Drawing.Point(29, 145);
+            this.Cmb_NomeCompleto.Name = "Cmb_NomeCompleto";
+            this.Cmb_NomeCompleto.Size = new System.Drawing.Size(338, 33);
+            this.Cmb_NomeCompleto.TabIndex = 12;
+            // 
             // Form_AdicionarNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(739, 399);
+            this.Controls.Add(this.Cmb_NomeCompleto);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.Btn_Voltar);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txt_SobrenomeAluno);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_NotaAluno);
             this.Controls.Add(this.txt_MateriaAluno);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txt_NomeAluno);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -217,14 +193,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_NomeAluno;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_MateriaAluno;
         private System.Windows.Forms.TextBox txt_NotaAluno;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_SobrenomeAluno;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button Btn_Sair;
         private System.Windows.Forms.Button Btn_Voltar;
+        private System.Windows.Forms.ComboBox Cmb_NomeCompleto;
     }
 }
