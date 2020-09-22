@@ -33,6 +33,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_ListaMateriasAtivas = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.Btn_Sair = new System.Windows.Forms.Button();
+            this.Btn_Voltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -82,16 +84,44 @@
             this.label4.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label4.Location = new System.Drawing.Point(12, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(673, 32);
+            this.label4.Size = new System.Drawing.Size(379, 32);
             this.label4.TabIndex = 1;
-            this.label4.Text = "{nomeDoAluno} suas notas no curso {nomeDoCursoAtivo}são:";
+            this.label4.Text = "Suas notas no seu curso ativo são:";
+            // 
+            // Btn_Sair
+            // 
+            this.Btn_Sair.BackColor = System.Drawing.Color.OrangeRed;
+            this.Btn_Sair.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Sair.Location = new System.Drawing.Point(379, 424);
+            this.Btn_Sair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Sair.Name = "Btn_Sair";
+            this.Btn_Sair.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Sair.TabIndex = 15;
+            this.Btn_Sair.Text = "Sair do Sistema";
+            this.Btn_Sair.UseVisualStyleBackColor = false;
+            this.Btn_Sair.Click += new System.EventHandler(this.Btn_Sair_Click);
+            // 
+            // Btn_Voltar
+            // 
+            this.Btn_Voltar.BackColor = System.Drawing.Color.LightCoral;
+            this.Btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Voltar.Location = new System.Drawing.Point(41, 424);
+            this.Btn_Voltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Voltar.Name = "Btn_Voltar";
+            this.Btn_Voltar.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Voltar.TabIndex = 14;
+            this.Btn_Voltar.Text = "Voltar";
+            this.Btn_Voltar.UseVisualStyleBackColor = false;
+            this.Btn_Voltar.Click += new System.EventHandler(this.Btn_Voltar_Click);
             // 
             // Form_NotasTodasMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(705, 387);
+            this.ClientSize = new System.Drawing.Size(705, 489);
+            this.Controls.Add(this.Btn_Sair);
+            this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_ListaMateriasAtivas);
             this.Controls.Add(this.label2);
@@ -112,5 +142,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_ListaMateriasAtivas;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button Btn_Sair;
+        private System.Windows.Forms.Button Btn_Voltar;
     }
 }

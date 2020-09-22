@@ -39,6 +39,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_SobrenomeAluno = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.Btn_Sair = new System.Windows.Forms.Button();
+            this.Btn_Voltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_AdicionarNota
@@ -156,12 +158,40 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Sobrenome do Aluno:";
             // 
+            // Btn_Sair
+            // 
+            this.Btn_Sair.BackColor = System.Drawing.Color.OrangeRed;
+            this.Btn_Sair.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Sair.Location = new System.Drawing.Point(449, 339);
+            this.Btn_Sair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Sair.Name = "Btn_Sair";
+            this.Btn_Sair.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Sair.TabIndex = 11;
+            this.Btn_Sair.Text = "Sair do Sistema";
+            this.Btn_Sair.UseVisualStyleBackColor = false;
+            this.Btn_Sair.Click += new System.EventHandler(this.Btn_Sair_Click);
+            // 
+            // Btn_Voltar
+            // 
+            this.Btn_Voltar.BackColor = System.Drawing.Color.LightCoral;
+            this.Btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Voltar.Location = new System.Drawing.Point(62, 339);
+            this.Btn_Voltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Voltar.Name = "Btn_Voltar";
+            this.Btn_Voltar.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Voltar.TabIndex = 10;
+            this.Btn_Voltar.Text = "Voltar";
+            this.Btn_Voltar.UseVisualStyleBackColor = false;
+            this.Btn_Voltar.Click += new System.EventHandler(this.Btn_Voltar_Click);
+            // 
             // Form_AdicionarNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(739, 322);
+            this.ClientSize = new System.Drawing.Size(739, 399);
+            this.Controls.Add(this.Btn_Sair);
+            this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_SobrenomeAluno);
             this.Controls.Add(this.label5);
@@ -194,5 +224,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_SobrenomeAluno;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Btn_Sair;
+        private System.Windows.Forms.Button Btn_Voltar;
     }
 }

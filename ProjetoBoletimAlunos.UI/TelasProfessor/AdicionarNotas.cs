@@ -47,5 +47,15 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
             txt_NomeAluno.Text = "";
             txt_SobrenomeAluno.Text = "";
         }
+
+        private void Btn_Voltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Btn_Sair_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

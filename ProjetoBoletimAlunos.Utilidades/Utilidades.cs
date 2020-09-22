@@ -27,12 +27,12 @@ namespace ProjetoBoletimAlunos.Utilidades
                 meuBanco.SaveChanges();
             }
         }
-        public void AddMateria(Materia matéria)
+        public void AddMateria(Materia materia)
         {
             meuBanco = new BancoDeDadosContext();
             using (meuBanco)
             {
-                meuBanco.Materias.Add(matéria);
+                meuBanco.Materias.Add(materia);
                 meuBanco.SaveChanges();
             }
         }

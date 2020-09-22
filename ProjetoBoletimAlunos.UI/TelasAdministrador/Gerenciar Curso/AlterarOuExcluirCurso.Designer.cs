@@ -42,6 +42,8 @@
             this.btn_ExcluirCurso = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.Btn_Sair = new System.Windows.Forms.Button();
+            this.Btn_Voltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -195,12 +197,40 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "dos três campos e depois pressione o botão de Alterar Registro.";
             // 
+            // Btn_Sair
+            // 
+            this.Btn_Sair.BackColor = System.Drawing.Color.OrangeRed;
+            this.Btn_Sair.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Sair.Location = new System.Drawing.Point(517, 472);
+            this.Btn_Sair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Sair.Name = "Btn_Sair";
+            this.Btn_Sair.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Sair.TabIndex = 21;
+            this.Btn_Sair.Text = "Sair do Sistema";
+            this.Btn_Sair.UseVisualStyleBackColor = false;
+            this.Btn_Sair.Click += new System.EventHandler(this.Btn_Sair_Click);
+            // 
+            // Btn_Voltar
+            // 
+            this.Btn_Voltar.BackColor = System.Drawing.Color.LightCoral;
+            this.Btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Voltar.Location = new System.Drawing.Point(75, 472);
+            this.Btn_Voltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Voltar.Name = "Btn_Voltar";
+            this.Btn_Voltar.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Voltar.TabIndex = 20;
+            this.Btn_Voltar.Text = "Voltar";
+            this.Btn_Voltar.UseVisualStyleBackColor = false;
+            this.Btn_Voltar.Click += new System.EventHandler(this.Btn_Voltar_Click);
+            // 
             // Form_AlterarOuExcluirCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(853, 487);
+            this.ClientSize = new System.Drawing.Size(853, 521);
+            this.Controls.Add(this.Btn_Sair);
+            this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_ExcluirCurso);
@@ -239,5 +269,7 @@
         private System.Windows.Forms.Button btn_ExcluirCurso;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button Btn_Sair;
+        private System.Windows.Forms.Button Btn_Voltar;
     }
 }

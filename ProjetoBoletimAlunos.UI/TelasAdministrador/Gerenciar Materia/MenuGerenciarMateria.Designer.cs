@@ -31,6 +31,8 @@
             this.btn_AlterarExcluirMateria = new System.Windows.Forms.Button();
             this.btn_AddMateria = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.Btn_Sair = new System.Windows.Forms.Button();
+            this.Btn_Voltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_AlterarExcluirMateria
@@ -70,12 +72,40 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Qual operação você deseja realizar?";
             // 
+            // Btn_Sair
+            // 
+            this.Btn_Sair.BackColor = System.Drawing.Color.OrangeRed;
+            this.Btn_Sair.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Sair.Location = new System.Drawing.Point(393, 295);
+            this.Btn_Sair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Sair.Name = "Btn_Sair";
+            this.Btn_Sair.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Sair.TabIndex = 15;
+            this.Btn_Sair.Text = "Sair do Sistema";
+            this.Btn_Sair.UseVisualStyleBackColor = false;
+            this.Btn_Sair.Click += new System.EventHandler(this.Btn_Sair_Click);
+            // 
+            // Btn_Voltar
+            // 
+            this.Btn_Voltar.BackColor = System.Drawing.Color.LightCoral;
+            this.Btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Voltar.Location = new System.Drawing.Point(67, 295);
+            this.Btn_Voltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Voltar.Name = "Btn_Voltar";
+            this.Btn_Voltar.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Voltar.TabIndex = 14;
+            this.Btn_Voltar.Text = "Voltar";
+            this.Btn_Voltar.UseVisualStyleBackColor = false;
+            this.Btn_Voltar.Click += new System.EventHandler(this.Btn_Voltar_Click);
+            // 
             // Form_MenuGerenciarMateria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(722, 287);
+            this.ClientSize = new System.Drawing.Size(722, 353);
+            this.Controls.Add(this.Btn_Sair);
+            this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_AddMateria);
             this.Controls.Add(this.btn_AlterarExcluirMateria);
@@ -91,5 +121,7 @@
         private System.Windows.Forms.Button btn_AlterarExcluirMateria;
         private System.Windows.Forms.Button btn_AddMateria;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Btn_Sair;
+        private System.Windows.Forms.Button Btn_Voltar;
     }
 }

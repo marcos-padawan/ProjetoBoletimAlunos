@@ -38,6 +38,8 @@
             this.txt_SobrenomeAluno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_MostraErroAlunoNaoEncontrado = new System.Windows.Forms.Label();
+            this.Btn_Sair = new System.Windows.Forms.Button();
+            this.Btn_Voltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Notas1Materia
@@ -83,7 +85,7 @@
             this.txt_NomeAluno.Location = new System.Drawing.Point(32, 89);
             this.txt_NomeAluno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_NomeAluno.Name = "txt_NomeAluno";
-            this.txt_NomeAluno.Size = new System.Drawing.Size(265, 38);
+            this.txt_NomeAluno.Size = new System.Drawing.Size(265, 30);
             this.txt_NomeAluno.TabIndex = 2;
             // 
             // label2
@@ -127,7 +129,7 @@
             this.txt_SobrenomeAluno.Location = new System.Drawing.Point(329, 89);
             this.txt_SobrenomeAluno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_SobrenomeAluno.Name = "txt_SobrenomeAluno";
-            this.txt_SobrenomeAluno.Size = new System.Drawing.Size(265, 38);
+            this.txt_SobrenomeAluno.Size = new System.Drawing.Size(265, 30);
             this.txt_SobrenomeAluno.TabIndex = 2;
             // 
             // label4
@@ -152,12 +154,40 @@
             this.lbl_MostraErroAlunoNaoEncontrado.Size = new System.Drawing.Size(0, 32);
             this.lbl_MostraErroAlunoNaoEncontrado.TabIndex = 3;
             // 
+            // Btn_Sair
+            // 
+            this.Btn_Sair.BackColor = System.Drawing.Color.OrangeRed;
+            this.Btn_Sair.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Sair.Location = new System.Drawing.Point(353, 392);
+            this.Btn_Sair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Sair.Name = "Btn_Sair";
+            this.Btn_Sair.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Sair.TabIndex = 15;
+            this.Btn_Sair.Text = "Sair do Sistema";
+            this.Btn_Sair.UseVisualStyleBackColor = false;
+            this.Btn_Sair.Click += new System.EventHandler(this.Btn_Sair_Click);
+            // 
+            // Btn_Voltar
+            // 
+            this.Btn_Voltar.BackColor = System.Drawing.Color.LightCoral;
+            this.Btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Voltar.Location = new System.Drawing.Point(46, 392);
+            this.Btn_Voltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Voltar.Name = "Btn_Voltar";
+            this.Btn_Voltar.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Voltar.TabIndex = 14;
+            this.Btn_Voltar.Text = "Voltar";
+            this.Btn_Voltar.UseVisualStyleBackColor = false;
+            this.Btn_Voltar.Click += new System.EventHandler(this.Btn_Voltar_Click);
+            // 
             // Form_MenuAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(622, 385);
+            this.ClientSize = new System.Drawing.Size(622, 457);
+            this.Controls.Add(this.Btn_Sair);
+            this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.lbl_MostraErroAlunoNaoEncontrado);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_SobrenomeAluno);
@@ -188,5 +218,7 @@
         private System.Windows.Forms.TextBox txt_SobrenomeAluno;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_MostraErroAlunoNaoEncontrado;
+        private System.Windows.Forms.Button Btn_Sair;
+        private System.Windows.Forms.Button Btn_Voltar;
     }
 }

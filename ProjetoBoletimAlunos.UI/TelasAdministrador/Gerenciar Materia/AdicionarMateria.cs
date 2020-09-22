@@ -14,6 +14,8 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
         public Form_AdicionarMateria()
         {
             InitializeComponent();
+            Cmb_SituacaoMateria.Items.Add("Ativo");
+            Cmb_SituacaoMateria.Items.Add("Inativo");
         }
         private void btn_SalvarNovaMateria_Click(object sender, EventArgs e)
         {
@@ -21,7 +23,7 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
             {
                 Descrição = txt_NomeMateria.Text,
                 DataCadastro = Convert.ToDateTime(txt_DataCadastroMateria.SelectionRange.Start.ToString()),
-                Situação = txt_SituacaoMateria.Text
+                Situação = Cmb_SituacaoMateria.Text
                 
             };
             var novaMatériaJson = JsonConvert.SerializeObject(novaMatéria);
@@ -38,8 +40,18 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
             MessageBox.Show("Deu boa campeão!");
 
             txt_NomeMateria.Text = "";
-            txt_SituacaoMateria.Text = "";
+            Cmb_SituacaoMateria.Text = "";
 
+        }
+
+        private void Btn_Voltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Btn_Sair_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

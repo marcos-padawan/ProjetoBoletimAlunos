@@ -47,6 +47,8 @@
             this.btn_AddNotas = new System.Windows.Forms.Button();
             this.btn_EscluirNotas = new System.Windows.Forms.Button();
             this.btn_AlterarNotas = new System.Windows.Forms.Button();
+            this.Btn_Sair = new System.Windows.Forms.Button();
+            this.Btn_Voltar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -236,7 +238,7 @@
             // 
             this.btn_EscluirNotas.BackColor = System.Drawing.Color.Tomato;
             this.btn_EscluirNotas.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btn_EscluirNotas.Location = new System.Drawing.Point(561, 398);
+            this.btn_EscluirNotas.Location = new System.Drawing.Point(561, 392);
             this.btn_EscluirNotas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_EscluirNotas.Name = "btn_EscluirNotas";
             this.btn_EscluirNotas.Size = new System.Drawing.Size(278, 45);
@@ -248,7 +250,7 @@
             // 
             this.btn_AlterarNotas.BackColor = System.Drawing.Color.Gold;
             this.btn_AlterarNotas.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btn_AlterarNotas.Location = new System.Drawing.Point(561, 486);
+            this.btn_AlterarNotas.Location = new System.Drawing.Point(561, 458);
             this.btn_AlterarNotas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AlterarNotas.Name = "btn_AlterarNotas";
             this.btn_AlterarNotas.Size = new System.Drawing.Size(278, 47);
@@ -256,12 +258,40 @@
             this.btn_AlterarNotas.Text = "Alterar Nota";
             this.btn_AlterarNotas.UseVisualStyleBackColor = false;
             // 
+            // Btn_Sair
+            // 
+            this.Btn_Sair.BackColor = System.Drawing.Color.OrangeRed;
+            this.Btn_Sair.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Sair.Location = new System.Drawing.Point(129, 507);
+            this.Btn_Sair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Sair.Name = "Btn_Sair";
+            this.Btn_Sair.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Sair.TabIndex = 9;
+            this.Btn_Sair.Text = "Sair do Sistema";
+            this.Btn_Sair.UseVisualStyleBackColor = false;
+            this.Btn_Sair.Click += new System.EventHandler(this.Btn_Sair_Click);
+            // 
+            // Btn_Voltar
+            // 
+            this.Btn_Voltar.BackColor = System.Drawing.Color.LightCoral;
+            this.Btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Btn_Voltar.Location = new System.Drawing.Point(129, 439);
+            this.Btn_Voltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Btn_Voltar.Name = "Btn_Voltar";
+            this.Btn_Voltar.Size = new System.Drawing.Size(241, 38);
+            this.Btn_Voltar.TabIndex = 8;
+            this.Btn_Voltar.Text = "Voltar";
+            this.Btn_Voltar.UseVisualStyleBackColor = false;
+            this.Btn_Voltar.Click += new System.EventHandler(this.Btn_Voltar_Click);
+            // 
             // Form_AlterarOuExcluirNota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(920, 587);
+            this.ClientSize = new System.Drawing.Size(920, 559);
+            this.Controls.Add(this.Btn_Sair);
+            this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.btn_AlterarNotas);
             this.Controls.Add(this.btn_EscluirNotas);
             this.Controls.Add(this.btn_AddNotas);
@@ -310,5 +340,7 @@
         private System.Windows.Forms.Button btn_AddNotas;
         private System.Windows.Forms.Button btn_EscluirNotas;
         private System.Windows.Forms.Button btn_AlterarNotas;
+        private System.Windows.Forms.Button Btn_Sair;
+        private System.Windows.Forms.Button Btn_Voltar;
     }
 }
