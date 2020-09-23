@@ -3,7 +3,6 @@ using ProjetoBoletimAlunos.Models;
 using ProjetoBoletimAlunos.Utilidades;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 
 namespace ProjetoBoletimAlunos.Controllers
@@ -46,7 +45,7 @@ namespace ProjetoBoletimAlunos.Controllers
             try
             {
                 Utilidades<Aluno> auxiliar = new Utilidades<Aluno>();
-                result.Data = auxiliar.BuscarAlunoPorNome(nome,sobrenome);
+                result.Data = auxiliar.BuscarAlunoPorNome(nome, sobrenome);
 
                 if (result.Data.Count == 0)
                 {
@@ -111,7 +110,7 @@ namespace ProjetoBoletimAlunos.Controllers
             try
             {
                 Utilidades<Aluno> auxiliar = new Utilidades<Aluno>();
-                result.Message = auxiliar.DeletaAluno(nome,sobrenome);
+                result.Message = auxiliar.DeletaAluno(nome, sobrenome);
 
                 if (result.Message is null)
                 {
@@ -134,13 +133,13 @@ namespace ProjetoBoletimAlunos.Controllers
 
         [HttpPut]
         [Route("UpdateAluno")]
-        public ActionResult UpdateAluno(string nome, string sobrenome, string novoNome, string novoSobrenome, string novoCpf)
+        public ActionResult UpdateAluno(string nome, string sobrenome, string novoNome, string novoSobrenome, string novoCpf, DateTime novoNascimento)
         {
             var result = new Result<List<Aluno>>();
             try
             {
                 Utilidades<Aluno> auxiliar = new Utilidades<Aluno>();
-                result.Message = auxiliar.AlterarAluno(nome, sobrenome, novoNome, novoSobrenome, novoCpf);
+                result.Message = auxiliar.AlterarAluno(nome, sobrenome, novoNome, novoSobrenome, novoCpf, novoNascimento);
                 return Ok(result);
             }
             catch (Exception ex)

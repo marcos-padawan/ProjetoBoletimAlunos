@@ -40,14 +40,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_CpfAlunoBuscar = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.btn_ExcluirAluno = new System.Windows.Forms.Button();
-            this.txt_CursoAlunoBuscar = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txt_NascimentoAlunoBuscar = new System.Windows.Forms.TextBox();
             this.btn_AlterarAluno = new System.Windows.Forms.Button();
             this.Btn_Sair = new System.Windows.Forms.Button();
             this.Btn_Voltar = new System.Windows.Forms.Button();
+            this.txt_NovoNome = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_NovoSobrenome = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -81,6 +83,7 @@
             this.btn_BuscarAluno.TabIndex = 2;
             this.btn_BuscarAluno.Text = "BUSCAR";
             this.btn_BuscarAluno.UseVisualStyleBackColor = false;
+            this.btn_BuscarAluno.Click += new System.EventHandler(this.btn_BuscarAluno_Click);
             // 
             // label2
             // 
@@ -162,7 +165,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label8.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label8.Location = new System.Drawing.Point(20, 393);
+            this.label8.Location = new System.Drawing.Point(20, 313);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(222, 28);
             this.label8.TabIndex = 0;
@@ -171,22 +174,11 @@
             // txt_CpfAlunoBuscar
             // 
             this.txt_CpfAlunoBuscar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_CpfAlunoBuscar.Location = new System.Drawing.Point(20, 424);
+            this.txt_CpfAlunoBuscar.Location = new System.Drawing.Point(20, 344);
             this.txt_CpfAlunoBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_CpfAlunoBuscar.Name = "txt_CpfAlunoBuscar";
             this.txt_CpfAlunoBuscar.Size = new System.Drawing.Size(304, 34);
             this.txt_CpfAlunoBuscar.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label9.Location = new System.Drawing.Point(20, 322);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 28);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Curso:";
             // 
             // btn_ExcluirAluno
             // 
@@ -199,22 +191,14 @@
             this.btn_ExcluirAluno.TabIndex = 2;
             this.btn_ExcluirAluno.Text = "Excluir Registro";
             this.btn_ExcluirAluno.UseVisualStyleBackColor = false;
-            // 
-            // txt_CursoAlunoBuscar
-            // 
-            this.txt_CursoAlunoBuscar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_CursoAlunoBuscar.Location = new System.Drawing.Point(20, 353);
-            this.txt_CursoAlunoBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_CursoAlunoBuscar.Name = "txt_CursoAlunoBuscar";
-            this.txt_CursoAlunoBuscar.Size = new System.Drawing.Size(304, 34);
-            this.txt_CursoAlunoBuscar.TabIndex = 1;
+            this.btn_ExcluirAluno.Click += new System.EventHandler(this.btn_ExcluirAluno_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label11.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label11.Location = new System.Drawing.Point(20, 471);
+            this.label11.Location = new System.Drawing.Point(20, 391);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(193, 28);
             this.label11.TabIndex = 0;
@@ -223,7 +207,7 @@
             // txt_NascimentoAlunoBuscar
             // 
             this.txt_NascimentoAlunoBuscar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_NascimentoAlunoBuscar.Location = new System.Drawing.Point(20, 501);
+            this.txt_NascimentoAlunoBuscar.Location = new System.Drawing.Point(20, 421);
             this.txt_NascimentoAlunoBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_NascimentoAlunoBuscar.Name = "txt_NascimentoAlunoBuscar";
             this.txt_NascimentoAlunoBuscar.Size = new System.Drawing.Size(304, 34);
@@ -240,12 +224,13 @@
             this.btn_AlterarAluno.TabIndex = 2;
             this.btn_AlterarAluno.Text = "Alterar Registro";
             this.btn_AlterarAluno.UseVisualStyleBackColor = false;
+            this.btn_AlterarAluno.Click += new System.EventHandler(this.btn_AlterarAluno_Click);
             // 
             // Btn_Sair
             // 
             this.Btn_Sair.BackColor = System.Drawing.Color.OrangeRed;
             this.Btn_Sair.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Btn_Sair.Location = new System.Drawing.Point(532, 571);
+            this.Btn_Sair.Location = new System.Drawing.Point(386, 580);
             this.Btn_Sair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Sair.Name = "Btn_Sair";
             this.Btn_Sair.Size = new System.Drawing.Size(241, 38);
@@ -258,7 +243,7 @@
             // 
             this.Btn_Voltar.BackColor = System.Drawing.Color.LightCoral;
             this.Btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Btn_Voltar.Location = new System.Drawing.Point(59, 571);
+            this.Btn_Voltar.Location = new System.Drawing.Point(656, 580);
             this.Btn_Voltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Voltar.Name = "Btn_Voltar";
             this.Btn_Voltar.Size = new System.Drawing.Size(241, 38);
@@ -267,20 +252,62 @@
             this.Btn_Voltar.UseVisualStyleBackColor = false;
             this.Btn_Voltar.Click += new System.EventHandler(this.Btn_Voltar_Click);
             // 
+            // txt_NovoNome
+            // 
+            this.txt_NovoNome.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txt_NovoNome.Location = new System.Drawing.Point(20, 501);
+            this.txt_NovoNome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_NovoNome.Name = "txt_NovoNome";
+            this.txt_NovoNome.Size = new System.Drawing.Size(304, 34);
+            this.txt_NovoNome.TabIndex = 21;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label10.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label10.Location = new System.Drawing.Point(20, 471);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(124, 28);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Novo Nome:";
+            // 
+            // txt_NovoSobrenome
+            // 
+            this.txt_NovoSobrenome.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txt_NovoSobrenome.Location = new System.Drawing.Point(20, 574);
+            this.txt_NovoSobrenome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_NovoSobrenome.Name = "txt_NovoSobrenome";
+            this.txt_NovoSobrenome.Size = new System.Drawing.Size(304, 34);
+            this.txt_NovoSobrenome.TabIndex = 23;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label12.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label12.Location = new System.Drawing.Point(20, 544);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(172, 28);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Novo Sobrenome:";
+            // 
             // Form_AlterarOuExcluirAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(894, 636);
+            this.ClientSize = new System.Drawing.Size(957, 645);
+            this.Controls.Add(this.txt_NovoSobrenome);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txt_NovoNome);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.btn_AlterarAluno);
             this.Controls.Add(this.txt_NascimentoAlunoBuscar);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.txt_CursoAlunoBuscar);
             this.Controls.Add(this.btn_ExcluirAluno);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.txt_CpfAlunoBuscar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -315,13 +342,15 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_CpfAlunoBuscar;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_ExcluirAluno;
-        private System.Windows.Forms.TextBox txt_CursoAlunoBuscar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txt_NascimentoAlunoBuscar;
         private System.Windows.Forms.Button btn_AlterarAluno;
         private System.Windows.Forms.Button Btn_Sair;
         private System.Windows.Forms.Button Btn_Voltar;
+        private System.Windows.Forms.TextBox txt_NovoNome;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txt_NovoSobrenome;
+        private System.Windows.Forms.Label label12;
     }
 }

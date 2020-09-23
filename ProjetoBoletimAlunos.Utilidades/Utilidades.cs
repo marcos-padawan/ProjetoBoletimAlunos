@@ -125,7 +125,7 @@ namespace ProjetoBoletimAlunos.Utilidades
             meuBanco = new BancoDeDadosContext();
             using (meuBanco)
             {
-                return meuBanco.Cursos.Where(q=>q.Situação.Equals("Ativo")).ToList();
+                return meuBanco.Cursos.Where(q => q.Situação.Equals("Ativo")).ToList();
             }
         }
         public List<Aluno> ListarTodosAlunos()
@@ -180,7 +180,7 @@ namespace ProjetoBoletimAlunos.Utilidades
                     return Message.Failure;
             }
         }
-        public string AlterarAluno(string nome, string sobrenome, string novoNome, string novoSobrenome, string novoCpf)
+        public string AlterarAluno(string nome, string sobrenome, string novoNome, string novoSobrenome, string novoCpf, DateTime novoNascimento)
         {
             meuBanco = new BancoDeDadosContext();
             using (meuBanco)
@@ -191,7 +191,8 @@ namespace ProjetoBoletimAlunos.Utilidades
                     aluno.Nome = novoNome;
                     aluno.Sobrenome = novoSobrenome;
                     aluno.Cpf = novoCpf;
-                   
+                    aluno.DataNascimento = novoNascimento;
+
                     meuBanco.SaveChanges();
                     return Message.Success;
                 }
@@ -231,7 +232,7 @@ namespace ProjetoBoletimAlunos.Utilidades
                     return Message.Success;
                 }
                 else
-                    return  Message.Failure;
+                    return Message.Failure;
             }
         }
         public string DeletaAluno(string nome, string sobrenome)
@@ -247,7 +248,7 @@ namespace ProjetoBoletimAlunos.Utilidades
                     return Message.Success;
                 }
                 else
-                    return  Message.Failure;
+                    return Message.Failure;
             }
         }
         public string DeletaCurso(string nome)
@@ -263,7 +264,7 @@ namespace ProjetoBoletimAlunos.Utilidades
                     return Message.Success;
                 }
                 else
-                    return  Message.Failure;
+                    return Message.Failure;
             }
         }
 
