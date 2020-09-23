@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
@@ -19,23 +20,23 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
         {
             InitializeComponent();
             ListarAlunos();
-            //ListarMaterias();
+            ListarMaterias();
         }
         private void btn_AdicionarNota_Click(object sender, EventArgs e)
         {
-
-            Notas novaNota = new Notas();
-
-            novaNota.Nota = Convert.ToDecimal(txt_NotaAluno.Text);
-            //novaNota.Alunos.Nome = txt_NomeAluno.Text;
-            //novaNota.Alunos.Sobrenome = txt_SobrenomeAluno.Text;
-            novaNota.Materias.Descrição = txt_MateriaAluno.Text;
-
+            int.TryParse((Regex.Match(Cmb_NomeMateria.Text, @"\d+").Value), out int materiaId);
+            int.TryParse((Regex.Match(Cmb_NomeCompleto.Text, @"\d+").Value), out int alunoId);
+            Notas novaNota = new Notas()
+            {
+                Nota = Convert.ToDecimal(txt_NotaAluno.Text),
+                MateriaId = materiaId,
+                AlunoId = alunoId
+            };
             var novaNotaJson = JsonConvert.SerializeObject(novaNota);
             StringContent content = new StringContent(novaNotaJson, Encoding.UTF8, "application/json");
 
             var httpClient = new HttpClient();
-            var URL = "https://localhost:44306/Notas/DeleteNotas";
+            var URL = "https://localhost:44306/Notas/AddNotas";
             var resultRequest = httpClient.PostAsync($"{URL}", content);
             resultRequest.Wait();
 
@@ -44,7 +45,7 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
 
             MessageBox.Show("Nota inserida com Sucesso!!!");
 
-            txt_MateriaAluno.Text = "";
+            Cmb_NomeMateria.Text = "";
             txt_NotaAluno.Text = "";
             Cmb_NomeCompleto.Text = "";
         }
@@ -75,9 +76,30 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
                 Cmb_NomeCompleto.Items.Add($"{item.Id} - {item.Nome} {item.Sobrenome}");
             }
         }
+        public void ListarMaterias()
+        {
+            var httpClient = new HttpClient();
+            var URL = "https://localhost:44306/Materia/ListarTodasMaterias";
+            var resultRequest = httpClient.GetAsync($"{URL}");
+            resultRequest.Wait();
+
+            var result = resultRequest.Result.Content.ReadAsStringAsync();
+            result.Wait();
+
+            var data = JsonConvert.DeserializeObject<Root2>(result.Result).Data;
+
+            foreach (var item in data)
+            {
+                Cmb_NomeMateria.Items.Add($"{item.Id} - {item.Descrição}");
+            }
+        }
         private class Root
         {
             public List<Aluno> Data { get; set; }
+        }
+        private class Root2
+        {
+            public List<Materia> Data { get; set; }
         }
     }
 }

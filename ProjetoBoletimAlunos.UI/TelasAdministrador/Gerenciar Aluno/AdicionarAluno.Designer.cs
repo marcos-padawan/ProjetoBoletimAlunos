@@ -118,7 +118,11 @@
             // 
             this.txt_NascimentoAluno.Location = new System.Drawing.Point(680, 74);
             this.txt_NascimentoAluno.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.txt_NascimentoAluno.MaxDate = new System.DateTime(2001, 12, 31, 0, 0, 0, 0);
+            this.txt_NascimentoAluno.MinDate = new System.DateTime(1930, 1, 1, 0, 0, 0, 0);
             this.txt_NascimentoAluno.Name = "txt_NascimentoAluno";
+            this.txt_NascimentoAluno.ShowToday = false;
+            this.txt_NascimentoAluno.ShowTodayCircle = false;
             this.txt_NascimentoAluno.TabIndex = 2;
             // 
             // label5
@@ -185,7 +189,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(1022, 325);
+            this.ClientSize = new System.Drawing.Size(1053, 371);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.Cmb_Cursos);

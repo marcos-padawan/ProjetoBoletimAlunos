@@ -19,32 +19,39 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Aluno
 
         private void btn_SalvarRegistroAluno_Click(object sender, EventArgs e)
         {
-            int.TryParse((Regex.Match(Cmb_Cursos.Text, @"\d+").Value), out int cursoId);
-            Aluno novoAluno = new Aluno()
+            if (txt_CpfAluno.TextLength == 11)
             {
-                Nome = txt_NomeAluno.Text,
-                Sobrenome = txt_SobrenomeAluno.Text,
-                DataNascimento = Convert.ToDateTime(txt_NascimentoAluno.SelectionRange.Start.ToString()),
-                Cpf = txt_CpfAluno.Text,
-                CursoId = cursoId
-            };
-            var novaMatériaJson = JsonConvert.SerializeObject(novoAluno);
-            StringContent content = new StringContent(novaMatériaJson, Encoding.UTF8, "application/json");
+                int.TryParse((Regex.Match(Cmb_Cursos.Text, @"\d+").Value), out int cursoId);
+                Aluno novoAluno = new Aluno()
+                {
+                    Nome = txt_NomeAluno.Text,
+                    Sobrenome = txt_SobrenomeAluno.Text,
+                    DataNascimento = Convert.ToDateTime(txt_NascimentoAluno.SelectionRange.Start.ToString()),
+                    Cpf = txt_CpfAluno.Text,
+                    CursoId = cursoId
+                };
+                var novaMatériaJson = JsonConvert.SerializeObject(novoAluno);
+                StringContent content = new StringContent(novaMatériaJson, Encoding.UTF8, "application/json");
 
-            var httpClient = new HttpClient();
-            var URL = "https://localhost:44306/Aluno/AddAluno";
-            var resultRequest = httpClient.PostAsync($"{URL}", content);
-            resultRequest.Wait();
+                var httpClient = new HttpClient();
+                var URL = "https://localhost:44306/Aluno/AddAluno";
+                var resultRequest = httpClient.PostAsync($"{URL}", content);
+                resultRequest.Wait();
 
-            var result = resultRequest.Result.Content.ReadAsStringAsync();
-            result.Wait();
+                var result = resultRequest.Result.Content.ReadAsStringAsync();
+                result.Wait();
 
-            MessageBox.Show("Deu boa campeão!");
+                MessageBox.Show("Deu boa campeão!");
 
-            txt_NomeAluno.Text = "";
-            txt_SobrenomeAluno.Text = "";
-            txt_CpfAluno.Text = "";
-            Cmb_Cursos.Text = "";
+                txt_NomeAluno.Text = "";
+                txt_SobrenomeAluno.Text = "";
+                txt_CpfAluno.Text = "";
+                Cmb_Cursos.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Favor inserir um Cpf Válido!!");
+            }
         }
 
         private void Btn_Voltar_Click(object sender, EventArgs e)
@@ -60,7 +67,7 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Aluno
         public void PoeListaCursos()
         {
             var httpClient = new HttpClient();
-            var URL = "https://localhost:44306/Curso/ListarTodosCursos";
+            var URL = "https://localhost:44306/Curso/ListarTodosCursosAtivos";
             var resultRequest = httpClient.GetAsync($"{URL}");
             resultRequest.Wait();
 

@@ -193,6 +193,7 @@
             this.btn_ExcluirMateria.TabIndex = 4;
             this.btn_ExcluirMateria.Text = "Excluir Registro";
             this.btn_ExcluirMateria.UseVisualStyleBackColor = false;
+            this.btn_ExcluirMateria.Click += new System.EventHandler(this.btn_ExcluirMateria_Click);
             // 
             // btn_AlterarMateria
             // 
@@ -205,6 +206,7 @@
             this.btn_AlterarMateria.TabIndex = 4;
             this.btn_AlterarMateria.Text = "Alterar Registro";
             this.btn_AlterarMateria.UseVisualStyleBackColor = false;
+            this.btn_AlterarMateria.Click += new System.EventHandler(this.btn_AlterarMateria_Click);
             // 
             // Btn_Sair
             // 

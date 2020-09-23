@@ -96,7 +96,7 @@ namespace ProjetoBoletimMaterias.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound($"{Message.Failure} **** {ex.Message}");
+                return NotFound($"{Message.Failure} - {ex.Message}");
             }
         }
 
@@ -110,23 +110,34 @@ namespace ProjetoBoletimMaterias.Controllers
                 Utilidades<Materia> auxiliar = new Utilidades<Materia>();
                 result.Message = auxiliar.DeletaMateria(descricao);
 
+                if (result.Message is null)
+                {
+                    result.Error = true;
+                    result.Message = Message.Failure;
+                }
+                else
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+                }
+
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest($"{Message.Failure} - {ex.Message}");
             }
         }
 
         [HttpPut]
         [Route("UpdateMateria")]
-        public ActionResult UpdateMateria(string descricaoMateria, string novoMateria, string novaSituacao)
+        public ActionResult UpdateMateria(string descricaoMateria, string novoMateria, string novaSituacao, DateTime novaData)
         {
             var result = new Result<List<Materia>>();
             try
             {
                 Utilidades<Materia> auxiliar = new Utilidades<Materia>();
-                result.Message = auxiliar.AlterarMateria(descricaoMateria, novoMateria, novaSituacao);
+                result.Message = auxiliar.AlterarMateria(descricaoMateria, novoMateria, novaSituacao, novaData);
                 return Ok(result);
             }
             catch (Exception ex)

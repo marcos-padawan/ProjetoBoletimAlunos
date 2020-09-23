@@ -15,10 +15,26 @@ namespace ProjetoBoletimAlunos.Controllers
 
         [HttpPost]
         [Route("AddNotas")]
-        public ActionResult PostNotas(Notas notas)
+        public ActionResult PostNota(Notas nota)
         {
-            minhaLista.Add(notas);
-            return Ok(minhaLista);
+            var result = new Result<Notas>();
+            try
+            {
+                Utilidades<Notas> auxiliar = new Utilidades<Notas>();
+                auxiliar.AddNota(nota);
+                result.Error = false;
+                result.Message = Message.Success;
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                result.Error = true;
+                result.Message = Message.Failure + ex.Message;
+                result.Status = System.Net.HttpStatusCode.InternalServerError;
+
+                return NotFound(result);
+            }
         }
 
         [HttpGet]

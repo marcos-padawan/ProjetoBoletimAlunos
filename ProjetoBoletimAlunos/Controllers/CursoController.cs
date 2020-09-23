@@ -12,8 +12,7 @@ namespace ProjetoBoletimCursos.Controllers
     [Route("Curso")]
     public class CursoController : ControllerBase
     {
-        public static List<Curso> minhaLista = new List<Curso>();
-
+        
         [HttpPost]
         [Route("AddCurso")]
         public ActionResult PostCurso(Curso curso)
@@ -52,18 +51,20 @@ namespace ProjetoBoletimCursos.Controllers
                 {
                     result.Error = true;
                     result.Message = Message.Failure;
+                    return BadRequest(result);
                 }
                 else
                 {
                     result.Error = false;
                     result.Message = Message.Success;
+                    return Ok(result);
                 }
-
-                return Ok(result);
             }
             catch (Exception ex)
             {
-                return NotFound(Message.Failure + "****" + ex.Message);
+                result.Error = true;
+                result.Message = $"{Message.Failure} - {ex.Message}";
+                return NotFound(result);
             }
         }
 
@@ -95,46 +96,78 @@ namespace ProjetoBoletimCursos.Controllers
                 return NotFound($"{Message.Failure} **** {ex.Message}");
             }
         }
+        [HttpGet]
+        [Route("ListarTodosCursosAtivos")]
+        public ActionResult ListarCursoAtivo()
+        {
+            var result = new Result<List<Curso>>();
+
+            try
+            {
+                Utilidades<Curso> auxiliar = new Utilidades<Curso>();
+                result.Data = auxiliar.ListarTodosCursosAtivos();
+                if (result.Data is null)
+                {
+                    result.Error = true;
+                    result.Message = Message.Failure;
+                }
+                else
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound($"{Message.Failure} **** {ex.Message}");
+            }
+        }
 
         [HttpDelete]
         [Route("DeleteCurso")]
         public ActionResult DeleteCurso(string nome)
         {
+            var result = new Result<List<Curso>>();
             try
             {
-                var result = minhaLista.RemoveAll(x => x.NomeCurso == nome);
+                Utilidades<Curso> auxiliar = new Utilidades<Curso>();
+                result.Message = auxiliar.DeletaCurso(nome);
 
-                if (result == 0)
-                    return BadRequest(Message.Failure);
+                if (result.Message is null)
+                {
+                    result.Error = true;
+                    result.Message = Message.Failure;
+                }
                 else
-                    return Ok(Message.Failure);
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+                }
+
+                return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(Message.Failure);
+                return BadRequest($"{Message.Failure} - {ex.Message}");
             }
         }
 
         [HttpPut]
         [Route("UpdateCurso")]
-        public ActionResult UpdateCurso(string nomeCurso, string novoCurso)
+        public ActionResult UpdateCurso(string nomeCurso, string novoNome, string novoStatus)
         {
             var result = new Result<List<Curso>>();
             try
             {
-                result.Data = minhaLista.Where(x => x.NomeCurso == nomeCurso).ToList();
-                result.Data.Select(s =>
-                {
-                    s.NomeCurso = novoCurso; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o Curso pelo cpf
-                    return s;
-                }).ToList();
+                Utilidades<Curso> auxiliar = new Utilidades<Curso>();
+                result.Message = auxiliar.AlterarCurso(nomeCurso, novoNome, novoStatus);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                result.Error = true;
-                result.Message = ex.Message;
-                return BadRequest(result);
+                return BadRequest(ex.Message);
             }
         }
     }

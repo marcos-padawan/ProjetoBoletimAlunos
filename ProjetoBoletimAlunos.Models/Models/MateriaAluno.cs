@@ -10,7 +10,5 @@ namespace ProjetoBoletimAlunos.Models
         public virtual Materia Materia { get; set; }
         public int AlunoId { get; set; }
         public virtual Aluno Aluno { get; set; }
-        public decimal Nota { get; set; }
-        
     }
 }

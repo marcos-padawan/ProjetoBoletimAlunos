@@ -35,24 +35,42 @@ namespace ProjetoBoletimAlunos.Controllers
                 return NotFound(result);
             }
         }
+
         public static List<Aluno> minhaLista = new List<Aluno>();
+
         [HttpGet]
         [Route("BuscaAlunoPorNome")]
         public ActionResult GetAluno(string nome, string sobrenome)
         {
+            var result = new Result<List<Aluno>>();
             try
             {
-                var result = minhaLista.Where(x => x.Nome.Contains(nome) && x.Sobrenome.Contains(sobrenome)).ToList();
-                if (result.Count == 0)
+                Utilidades<Aluno> auxiliar = new Utilidades<Aluno>();
+                result.Data = auxiliar.BuscarAlunoPorNome(nome,sobrenome);
+
+                if (result.Data.Count == 0)
                 {
-                    return BadRequest(Message.Failure);
+                    result.Error = true;
+                    result.Message = Message.Failure;
+                    result.Status = System.Net.HttpStatusCode.InternalServerError;
+
+                    return BadRequest(result);
                 }
                 else
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+
                     return Ok(result);
+                }
             }
             catch (Exception ex)
             {
-                return NotFound(Message.Failure + "****" + ex.Message);
+                result.Error = true;
+                result.Message = $"{Message.Failure} - {ex.Message}";
+                result.Status = System.Net.HttpStatusCode.InternalServerError;
+
+                return NotFound(result);
             }
         }
 
@@ -89,43 +107,46 @@ namespace ProjetoBoletimAlunos.Controllers
         [Route("DeleteAluno")]
         public ActionResult DeleteAluno(string nome, string sobrenome)
         {
+            var result = new Result<List<Aluno>>();
             try
             {
-                var result = minhaLista.RemoveAll(x => x.Nome == nome && x.Sobrenome == sobrenome);
+                Utilidades<Aluno> auxiliar = new Utilidades<Aluno>();
+                result.Message = auxiliar.DeletaAluno(nome,sobrenome);
 
-                if (result == 0)
-                    return BadRequest(Message.Failure);
+                if (result.Message is null)
+                {
+                    result.Error = true;
+                    result.Message = Message.Failure;
+                }
                 else
-                    return Ok(Message.Failure);
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+                }
+
+                return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(Message.Failure);
+                return BadRequest($"{Message.Failure} - {ex.Message}");
             }
         }
 
         [HttpPut]
         [Route("UpdateAluno")]
-        public ActionResult UpdateAluno(string cpfAluno, string novoAluno)
+        public ActionResult UpdateAluno(string nome, string sobrenome, string novoNome, string novoSobrenome, string novoCpf)
         {
             var result = new Result<List<Aluno>>();
             try
             {
-                result.Data = minhaLista.Where(x => x.Cpf == cpfAluno).ToList();
-                result.Data.Select(s =>
-                {
-                    s.Cpf = novoAluno; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o aluno pelo cpf
-                    return s;
-                }).ToList();
+                Utilidades<Aluno> auxiliar = new Utilidades<Aluno>();
+                result.Message = auxiliar.AlterarAluno(nome, sobrenome, novoNome, novoSobrenome, novoCpf);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                result.Error = true;
-                result.Message = ex.Message;
-                return BadRequest(result);
+                return BadRequest(ex.Message);
             }
-
         }
     }
 }

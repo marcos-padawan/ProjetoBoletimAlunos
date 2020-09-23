@@ -33,12 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_MateriaAluno = new System.Windows.Forms.TextBox();
             this.txt_NotaAluno = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Btn_Sair = new System.Windows.Forms.Button();
             this.Btn_Voltar = new System.Windows.Forms.Button();
             this.Cmb_NomeCompleto = new System.Windows.Forms.ComboBox();
+            this.Cmb_NomeMateria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn_AdicionarNota
@@ -98,15 +98,6 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Matéria:";
             // 
-            // txt_MateriaAluno
-            // 
-            this.txt_MateriaAluno.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_MateriaAluno.Location = new System.Drawing.Point(444, 100);
-            this.txt_MateriaAluno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_MateriaAluno.Name = "txt_MateriaAluno";
-            this.txt_MateriaAluno.Size = new System.Drawing.Size(189, 34);
-            this.txt_MateriaAluno.TabIndex = 3;
-            // 
             // txt_NotaAluno
             // 
             this.txt_NotaAluno.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -162,18 +153,27 @@
             this.Cmb_NomeCompleto.Size = new System.Drawing.Size(338, 33);
             this.Cmb_NomeCompleto.TabIndex = 12;
             // 
+            // Cmb_NomeMateria
+            // 
+            this.Cmb_NomeMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cmb_NomeMateria.FormattingEnabled = true;
+            this.Cmb_NomeMateria.Location = new System.Drawing.Point(444, 103);
+            this.Cmb_NomeMateria.Name = "Cmb_NomeMateria";
+            this.Cmb_NomeMateria.Size = new System.Drawing.Size(241, 33);
+            this.Cmb_NomeMateria.TabIndex = 13;
+            // 
             // Form_AdicionarNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(739, 399);
+            this.Controls.Add(this.Cmb_NomeMateria);
             this.Controls.Add(this.Cmb_NomeCompleto);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_NotaAluno);
-            this.Controls.Add(this.txt_MateriaAluno);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -194,11 +194,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_MateriaAluno;
         private System.Windows.Forms.TextBox txt_NotaAluno;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Btn_Sair;
         private System.Windows.Forms.Button Btn_Voltar;
         private System.Windows.Forms.ComboBox Cmb_NomeCompleto;
+        private System.Windows.Forms.ComboBox Cmb_NomeMateria;
     }
 }
