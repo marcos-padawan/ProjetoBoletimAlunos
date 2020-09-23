@@ -36,6 +36,7 @@
             this.btn_AcessoProfessor = new System.Windows.Forms.Button();
             this.btn_AcessoAdministrador = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -99,11 +100,24 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Escolha uma das opções abaixo:";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Tomato;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(807, 98);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 168);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Alexandre e Maestro, Clique Aqui!";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form_MenuPrincipal
             // 
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1015, 717);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_AcessoAdministrador);
             this.Controls.Add(this.btn_AcessoProfessor);
@@ -122,6 +136,7 @@
         private System.Windows.Forms.Button btn_AcessoProfessor;
         private System.Windows.Forms.Button btn_AcessoAdministrador;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
