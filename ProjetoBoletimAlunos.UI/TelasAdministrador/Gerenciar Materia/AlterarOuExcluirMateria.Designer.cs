@@ -46,6 +46,8 @@
             this.btn_AlterarMateria = new System.Windows.Forms.Button();
             this.Btn_Sair = new System.Windows.Forms.Button();
             this.Btn_Voltar = new System.Windows.Forms.Button();
+            this.txt_NovoNomeMateria = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -186,7 +188,7 @@
             // 
             this.btn_ExcluirMateria.BackColor = System.Drawing.Color.Tomato;
             this.btn_ExcluirMateria.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btn_ExcluirMateria.Location = new System.Drawing.Point(456, 316);
+            this.btn_ExcluirMateria.Location = new System.Drawing.Point(560, 305);
             this.btn_ExcluirMateria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ExcluirMateria.Name = "btn_ExcluirMateria";
             this.btn_ExcluirMateria.Size = new System.Drawing.Size(303, 43);
@@ -199,7 +201,7 @@
             // 
             this.btn_AlterarMateria.BackColor = System.Drawing.Color.Gold;
             this.btn_AlterarMateria.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btn_AlterarMateria.Location = new System.Drawing.Point(456, 380);
+            this.btn_AlterarMateria.Location = new System.Drawing.Point(560, 367);
             this.btn_AlterarMateria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AlterarMateria.Name = "btn_AlterarMateria";
             this.btn_AlterarMateria.Size = new System.Drawing.Size(303, 43);
@@ -212,7 +214,7 @@
             // 
             this.Btn_Sair.BackColor = System.Drawing.Color.OrangeRed;
             this.Btn_Sair.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Btn_Sair.Location = new System.Drawing.Point(424, 470);
+            this.Btn_Sair.Location = new System.Drawing.Point(593, 491);
             this.Btn_Sair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Sair.Name = "Btn_Sair";
             this.Btn_Sair.Size = new System.Drawing.Size(241, 38);
@@ -225,7 +227,7 @@
             // 
             this.Btn_Voltar.BackColor = System.Drawing.Color.LightCoral;
             this.Btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Btn_Voltar.Location = new System.Drawing.Point(98, 470);
+            this.Btn_Voltar.Location = new System.Drawing.Point(593, 438);
             this.Btn_Voltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Voltar.Name = "Btn_Voltar";
             this.Btn_Voltar.Size = new System.Drawing.Size(241, 38);
@@ -234,12 +236,34 @@
             this.Btn_Voltar.UseVisualStyleBackColor = false;
             this.Btn_Voltar.Click += new System.EventHandler(this.Btn_Voltar_Click);
             // 
+            // txt_NovoNomeMateria
+            // 
+            this.txt_NovoNomeMateria.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txt_NovoNomeMateria.Location = new System.Drawing.Point(32, 480);
+            this.txt_NovoNomeMateria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_NovoNomeMateria.Name = "txt_NovoNomeMateria";
+            this.txt_NovoNomeMateria.Size = new System.Drawing.Size(253, 34);
+            this.txt_NovoNomeMateria.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label9.Location = new System.Drawing.Point(32, 447);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(124, 28);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Novo Nome:";
+            // 
             // Form_AlterarOuExcluirMateria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(916, 540);
+            this.Controls.Add(this.txt_NovoNomeMateria);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.btn_AlterarMateria);
@@ -283,5 +307,7 @@
         private System.Windows.Forms.Button btn_AlterarMateria;
         private System.Windows.Forms.Button Btn_Sair;
         private System.Windows.Forms.Button Btn_Voltar;
+        private System.Windows.Forms.TextBox txt_NovoNomeMateria;
+        private System.Windows.Forms.Label label9;
     }
 }

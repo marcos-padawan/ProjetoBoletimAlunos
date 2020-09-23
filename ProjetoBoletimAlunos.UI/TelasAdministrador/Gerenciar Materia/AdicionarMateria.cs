@@ -5,8 +5,6 @@ using System.Net.Http;
 using System.Text;
 using System.Windows.Forms;
 
-
-
 namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
 {
     public partial class Form_AdicionarMateria : Form
@@ -19,29 +17,33 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
         }
         private void btn_SalvarNovaMateria_Click(object sender, EventArgs e)
         {
-            Materia novaMatéria = new Materia()
+            if (Convert.ToDateTime(txt_DataCadastroMateria.SelectionRange.Start.ToString()) <= DateTime.Today)
             {
-                Descrição = txt_NomeMateria.Text,
-                DataCadastro = Convert.ToDateTime(txt_DataCadastroMateria.SelectionRange.Start.ToString()),
-                Situação = Cmb_SituacaoMateria.Text
-                
-            };
-            var novaMatériaJson = JsonConvert.SerializeObject(novaMatéria);
-            StringContent content = new StringContent(novaMatériaJson, Encoding.UTF8, "application/json");
+                Materia novaMatéria = new Materia()
+                {
+                    Descrição = txt_NomeMateria.Text,
+                    DataCadastro = Convert.ToDateTime(txt_DataCadastroMateria.SelectionRange.Start.ToString()),
+                    Situação = Cmb_SituacaoMateria.Text
 
-            var httpClient = new HttpClient();
-            var URL = "https://localhost:44306/Materia/AddMateria";
-            var resultRequest = httpClient.PostAsync($"{URL}", content);
-            resultRequest.Wait();
+                };
+                var novaMatériaJson = JsonConvert.SerializeObject(novaMatéria);
+                StringContent content = new StringContent(novaMatériaJson, Encoding.UTF8, "application/json");
 
-            var result = resultRequest.Result.Content.ReadAsStringAsync();
-            result.Wait();
+                var httpClient = new HttpClient();
+                var URL = "https://localhost:44306/Materia/AddMateria";
+                var resultRequest = httpClient.PostAsync($"{URL}", content);
+                resultRequest.Wait();
 
-            MessageBox.Show("Deu boa campeão!");
+                var result = resultRequest.Result.Content.ReadAsStringAsync();
+                result.Wait();
 
-            txt_NomeMateria.Text = "";
-            Cmb_SituacaoMateria.Text = "";
+                MessageBox.Show("Deu boa campeão!");
 
+                txt_NomeMateria.Text = "";
+                Cmb_SituacaoMateria.Text = "";
+            }
+            else
+                MessageBox.Show("Data inserida é superior ao dia de hoje, favor inserir outra.");
         }
 
         private void Btn_Voltar_Click(object sender, EventArgs e)

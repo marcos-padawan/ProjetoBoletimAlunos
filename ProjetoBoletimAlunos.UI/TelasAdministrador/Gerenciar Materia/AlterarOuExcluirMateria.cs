@@ -58,7 +58,7 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
         {
             Materia novaMatéria = new Materia()
             {
-                Descrição = txt_DescricaoMateriaBuscar.Text,
+                Descrição = txt_NovoNomeMateria.Text,
                 DataCadastro = Convert.ToDateTime(txt_DataCadastroMateriaBuscar.Text),
                 Situação = txt_SituacaoMateriaBuscar.Text
 
@@ -68,19 +68,23 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
 
             var httpClient = new HttpClient();
             var URL = "https://localhost:44306/Materia/UpdateMateria";
-            var resultRequest = httpClient.PutAsync($"{URL}?descricaoMateria={txt_DescricaoMateriaBuscar.Text}&novoMateria={txt_DescricaoMateriaBuscar.Text}&novaSituacao={txt_SituacaoMateriaBuscar.Text}&novaData={Convert.ToDateTime(txt_DataCadastroMateriaBuscar.Text)}", content);
+            var resultRequest = httpClient.PutAsync($"{URL}?descricaoMateria={txt_DescricaoMateriaBuscar.Text}" +
+                $"&novoMateria={txt_NovoNomeMateria.Text}" +
+                $"&novaSituacao={txt_SituacaoMateriaBuscar.Text}" +
+                $"&novaData={Convert.ToDateTime(txt_DataCadastroMateriaBuscar.Text)}", content);
             resultRequest.Wait();
 
             var result = resultRequest.Result.Content.ReadAsStringAsync();
             result.Wait();
 
-            //var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
+            var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
 
             MessageBox.Show("Deu boa campeão!");
 
             txt_SituacaoMateriaBuscar.Text = "";
             txt_DescricaoMateriaBuscar.Text = "";
             txt_DataCadastroMateriaBuscar.Text = "";
+            txt_NovoNomeMateria.Text = "";
         }
         private void Btn_Voltar_Click(object sender, EventArgs e)
         {

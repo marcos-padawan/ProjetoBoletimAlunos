@@ -32,9 +32,7 @@
             this.txt_NomeCursoBusca = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_SituacaoCursoBusca = new System.Windows.Forms.TextBox();
-            this.txt_MateriaCursoBusca = new System.Windows.Forms.TextBox();
             this.btn_AlterarCurso = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_BuscarCurso = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,6 +42,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.Btn_Sair = new System.Windows.Forms.Button();
             this.Btn_Voltar = new System.Windows.Forms.Button();
+            this.txt_NovoNomecurso = new System.Windows.Forms.TextBox();
+            this.label78 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -71,7 +71,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label2.Location = new System.Drawing.Point(31, 366);
+            this.label2.Location = new System.Drawing.Point(26, 368);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(248, 28);
             this.label2.TabIndex = 0;
@@ -80,20 +80,11 @@
             // txt_SituacaoCursoBusca
             // 
             this.txt_SituacaoCursoBusca.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_SituacaoCursoBusca.Location = new System.Drawing.Point(31, 399);
+            this.txt_SituacaoCursoBusca.Location = new System.Drawing.Point(31, 408);
             this.txt_SituacaoCursoBusca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_SituacaoCursoBusca.Name = "txt_SituacaoCursoBusca";
             this.txt_SituacaoCursoBusca.Size = new System.Drawing.Size(327, 34);
             this.txt_SituacaoCursoBusca.TabIndex = 1;
-            // 
-            // txt_MateriaCursoBusca
-            // 
-            this.txt_MateriaCursoBusca.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_MateriaCursoBusca.Location = new System.Drawing.Point(31, 327);
-            this.txt_MateriaCursoBusca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_MateriaCursoBusca.Name = "txt_MateriaCursoBusca";
-            this.txt_MateriaCursoBusca.Size = new System.Drawing.Size(327, 34);
-            this.txt_MateriaCursoBusca.TabIndex = 1;
             // 
             // btn_AlterarCurso
             // 
@@ -106,17 +97,7 @@
             this.btn_AlterarCurso.TabIndex = 3;
             this.btn_AlterarCurso.Text = "Alterar Registro";
             this.btn_AlterarCurso.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(31, 295);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 28);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Matéria:";
+            this.btn_AlterarCurso.Click += new System.EventHandler(this.btn_AlterarCurso_Click);
             // 
             // label4
             // 
@@ -140,6 +121,7 @@
             this.btn_BuscarCurso.TabIndex = 3;
             this.btn_BuscarCurso.Text = "BUSCAR";
             this.btn_BuscarCurso.UseVisualStyleBackColor = false;
+            this.btn_BuscarCurso.Click += new System.EventHandler(this.btn_BuscarCurso_Click);
             // 
             // label5
             // 
@@ -174,6 +156,7 @@
             this.btn_ExcluirCurso.TabIndex = 3;
             this.btn_ExcluirCurso.Text = "Excluir Registro";
             this.btn_ExcluirCurso.UseVisualStyleBackColor = false;
+            this.btn_ExcluirCurso.Click += new System.EventHandler(this.btn_ExcluirCurso_Click);
             // 
             // label7
             // 
@@ -193,9 +176,9 @@
             this.label8.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label8.Location = new System.Drawing.Point(31, 245);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(806, 38);
+            this.label8.Size = new System.Drawing.Size(1050, 48);
             this.label8.TabIndex = 0;
-            this.label8.Text = "dos três campos e depois pressione o botão de Alterar Registro.";
+            this.label8.Text = "dos campos abaixo e depois pressione o botão de Alterar Registro.";
             // 
             // Btn_Sair
             // 
@@ -223,12 +206,34 @@
             this.Btn_Voltar.UseVisualStyleBackColor = false;
             this.Btn_Voltar.Click += new System.EventHandler(this.Btn_Voltar_Click);
             // 
+            // txt_NovoNomecurso
+            // 
+            this.txt_NovoNomecurso.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.txt_NovoNomecurso.Location = new System.Drawing.Point(31, 331);
+            this.txt_NovoNomecurso.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_NovoNomecurso.Name = "txt_NovoNomecurso";
+            this.txt_NovoNomecurso.Size = new System.Drawing.Size(327, 34);
+            this.txt_NovoNomecurso.TabIndex = 23;
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label78.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label78.Location = new System.Drawing.Point(26, 291);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(150, 35);
+            this.label78.TabIndex = 22;
+            this.label78.Text = "Novo nome:";
+            // 
             // Form_AlterarOuExcluirCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(853, 521);
+            this.ClientSize = new System.Drawing.Size(711, 416);
+            this.Controls.Add(this.txt_NovoNomecurso);
+            this.Controls.Add(this.label78);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.label8);
@@ -238,9 +243,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_BuscarCurso);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_AlterarCurso);
-            this.Controls.Add(this.txt_MateriaCursoBusca);
             this.Controls.Add(this.txt_SituacaoCursoBusca);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_NomeCursoBusca);
@@ -259,9 +262,7 @@
         private System.Windows.Forms.TextBox txt_NomeCursoBusca;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_SituacaoCursoBusca;
-        private System.Windows.Forms.TextBox txt_MateriaCursoBusca;
         private System.Windows.Forms.Button btn_AlterarCurso;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_BuscarCurso;
         private System.Windows.Forms.Label label5;
@@ -271,5 +272,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button Btn_Sair;
         private System.Windows.Forms.Button Btn_Voltar;
+        private System.Windows.Forms.TextBox txt_NovoNomecurso;
+        private System.Windows.Forms.Label label78;
     }
 }

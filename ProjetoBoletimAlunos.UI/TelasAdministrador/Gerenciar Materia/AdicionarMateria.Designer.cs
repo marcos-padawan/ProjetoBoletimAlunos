@@ -98,6 +98,8 @@
             // 
             this.txt_DataCadastroMateria.Location = new System.Drawing.Point(484, 50);
             this.txt_DataCadastroMateria.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
+            this.txt_DataCadastroMateria.MaxDate = new System.DateTime(2020, 11, 29, 0, 0, 0, 0);
+            this.txt_DataCadastroMateria.MinDate = new System.DateTime(1930, 1, 1, 0, 0, 0, 0);
             this.txt_DataCadastroMateria.Name = "txt_DataCadastroMateria";
             this.txt_DataCadastroMateria.TabIndex = 2;
             // 
@@ -141,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(800, 353);
+            this.ClientSize = new System.Drawing.Size(640, 282);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.Cmb_SituacaoMateria);
