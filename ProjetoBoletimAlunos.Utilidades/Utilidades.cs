@@ -85,6 +85,15 @@ namespace ProjetoBoletimAlunos.Utilidades
                 && x.Alunos.Curso.NomeCurso.Equals(nomeCurso)).ToList();
             }
         }
+        public List<Notas> ListarNotasPorAluno(int idAluno, int idMateria)
+        {
+            meuBanco = new BancoDeDadosContext();
+            using (meuBanco)
+            {
+                return meuBanco.Notas.Where(x => x.AlunoId.Equals(idAluno)
+                && x.MateriaId.Equals(idMateria)).ToList();
+            }
+        }
         public List<Aluno> BuscarAlunoPorNome(string nomeAluno, string sobrenomeAluno)
         {
             meuBanco = new BancoDeDadosContext();
@@ -217,6 +226,23 @@ namespace ProjetoBoletimAlunos.Utilidades
                     return Message.Failure;
             }
         }
+        public string AlterarNotas(int idAluno, int idMateria, decimal novaNota)
+        {
+            meuBanco = new BancoDeDadosContext();
+            using (meuBanco)
+            {
+                var nota = meuBanco.Notas.FirstOrDefault(q => q.AlunoId.Equals(idAluno)
+                                                            && q.MateriaId.Equals(idMateria));
+                if (nota != null)
+                {
+                    nota.Nota = novaNota;
+                    meuBanco.SaveChanges();
+                    return Message.Success;
+                }
+                else
+                    return Message.Failure;
+            }
+        }
 
         //-----EXCLUSÃO DE ITENS DO BANCO-------  DELETE
         public string DeletaMateria(string descricao)
@@ -260,6 +286,23 @@ namespace ProjetoBoletimAlunos.Utilidades
                 if (cursoRemovido != null)
                 {
                     meuBanco.Cursos.Remove(cursoRemovido);
+                    meuBanco.SaveChanges();
+                    return Message.Success;
+                }
+                else
+                    return Message.Failure;
+            }
+        }
+        public string DeletaNotas(int idAluno, int idMateria)
+        {
+            meuBanco = new BancoDeDadosContext();
+            using (meuBanco)
+            {
+                var notaRemovida = meuBanco.Notas.FirstOrDefault(q => q.AlunoId.Equals(idAluno)
+                                                                   && q.MateriaId.Equals(idMateria));
+                if (notaRemovida != null)
+                {
+                    meuBanco.Notas.Remove(notaRemovida);
                     meuBanco.SaveChanges();
                     return Message.Success;
                 }

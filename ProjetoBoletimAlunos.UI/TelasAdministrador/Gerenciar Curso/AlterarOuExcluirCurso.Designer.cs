@@ -176,7 +176,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label8.Location = new System.Drawing.Point(31, 245);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(1050, 48);
+            this.label8.Size = new System.Drawing.Size(840, 38);
             this.label8.TabIndex = 0;
             this.label8.Text = "dos campos abaixo e depois pressione o botão de Alterar Registro.";
             // 
@@ -222,7 +222,7 @@
             this.label78.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label78.Location = new System.Drawing.Point(26, 291);
             this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(150, 35);
+            this.label78.Size = new System.Drawing.Size(120, 28);
             this.label78.TabIndex = 22;
             this.label78.Text = "Novo nome:";
             // 
@@ -231,7 +231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(711, 416);
+            this.ClientSize = new System.Drawing.Size(897, 541);
             this.Controls.Add(this.txt_NovoNomecurso);
             this.Controls.Add(this.label78);
             this.Controls.Add(this.Btn_Sair);

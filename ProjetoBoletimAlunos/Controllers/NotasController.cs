@@ -39,63 +39,78 @@ namespace ProjetoBoletimAlunos.Controllers
 
         [HttpGet]
         [Route("BuscaNotasPorAlunoEMateria")]
-        public ActionResult GetNotas(string alunoNome,string alunoSobrenome, string materia)
+        public ActionResult GetNotas(int idAluno, int idMateria)
         {
+            var result = new Result<List<Notas>>();
             try
             {
-                var result = minhaLista.Where(x => x.Alunos.Nome.Contains(alunoNome) && x.Alunos.Sobrenome.Contains(alunoSobrenome) &&  x.Materias.Descrição.Contains(materia)).ToList();
-                if (result.Count == 0)
+                Utilidades<Notas> auxiliar = new Utilidades<Notas>();
+                result.Data = auxiliar.ListarNotasPorAluno(idAluno, idMateria);
+                if (result.Data is null)
                 {
-                    return BadRequest(Message.Failure);
+                    result.Error = false;
+                    result.Message = Message.Failure;
+                    return BadRequest(result);
                 }
                 else
+                {
+                    result.Error = true;
+                    result.Message = Message.Success;
                     return Ok(result);
+                }
             }
             catch (Exception ex)
             {
-                return NotFound(Message.Failure + "****" + ex.Message);
+                result.Error = true;
+                result.Message = $"{Message.Failure} - {ex.Message}";
+                result.Status = System.Net.HttpStatusCode.InternalServerError;
+                return NotFound(result);
             }
         }
 
         [HttpDelete]
         [Route("DeleteNotas")]
-        public ActionResult DeleteNotas(string alunoNome, string alunoSobrenome, string materia)
+        public ActionResult DeleteNotas(int idAluno, int idMateria)
         {
+            var result = new Result<List<Notas>>();
             try
             {
-                var result = minhaLista.RemoveAll(x => x.Alunos.Nome == alunoNome && x.Alunos.Sobrenome == alunoSobrenome &&  x.Materias.Descrição == materia);
+                Utilidades<Notas> auxiliar = new Utilidades<Notas>();
+                result.Message = auxiliar.DeletaNotas(idAluno,idMateria);
 
-                if (result == 0)
-                    return BadRequest(Message.Failure);
+                if (result.Message is null)
+                {
+                    result.Error = true;
+                    result.Message = Message.Failure;
+                }
                 else
-                    return Ok(Message.Failure);
+                {
+                    result.Error = false;
+                    result.Message = Message.Success;
+                }
+
+                return Ok(result);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest(Message.Failure);
+                return BadRequest($"{Message.Failure} - {ex.Message}");
             }
         }
 
         [HttpPut]
         [Route("UpdateNotas")]
-        public ActionResult UpdateNotas(string alunoNome,string alunoSobrenome, string materia, decimal novaNota)
+        public ActionResult UpdateNotas(int idAluno, int idMateria, decimal novaNota)
         {
             var result = new Result<List<Notas>>();
             try
             {
-                result.Data = minhaLista.Where(x => x.Alunos.Nome == alunoNome && x.Alunos.Sobrenome == alunoSobrenome &&  x.Materias.Descrição == materia).ToList();
-                result.Data.Select(s =>
-                {
-                    s.Nota = novaNota; // aqui tenho que colocar o valor do form pro usuário decidir qual campo quer alterar, depois que encontra o Notas pelo cpf
-                    return s;
-                }).ToList();
+                Utilidades<Notas> auxiliar = new Utilidades<Notas>();
+                result.Message = auxiliar.AlterarNotas(idAluno, idMateria, novaNota);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                result.Error = true;
-                result.Message = ex.Message;
-                return BadRequest(result);
+                return BadRequest(ex.Message);
             }
         }
     }
