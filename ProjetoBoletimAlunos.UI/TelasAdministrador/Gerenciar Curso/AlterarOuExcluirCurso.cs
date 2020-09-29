@@ -42,7 +42,6 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Curso
                 txt_SituacaoCursoBusca.Text = item.Situação;
             }
         }
-        
 
         private void btn_ExcluirCurso_Click(object sender, EventArgs e)
         {

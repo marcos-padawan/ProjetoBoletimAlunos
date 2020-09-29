@@ -219,6 +219,7 @@ namespace ProjetoBoletimAlunos.Utilidades
                 {
                     curso.NomeCurso = novoNome;
                     curso.Situação = novoStatus;
+
                     meuBanco.SaveChanges();
                     return Message.Success;
                 }

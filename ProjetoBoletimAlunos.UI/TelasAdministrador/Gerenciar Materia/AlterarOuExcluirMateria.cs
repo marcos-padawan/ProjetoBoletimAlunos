@@ -46,32 +46,30 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
 
             var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
 
-            MessageBox.Show("Deu boa campeão!");
+            MessageBox.Show("Matéria Removida com Sucesso!");
 
             txt_SituacaoMateriaBuscar.Text = "";
             txt_DescricaoMateriaBuscar.Text = "";
             txt_DataCadastroMateriaBuscar.Text = "";
-
         }
         
         private void btn_AlterarMateria_Click(object sender, EventArgs e)
         {
-            Materia novaMatéria = new Materia()
+            Materia novaMateria = new Materia()
             {
                 Descrição = txt_NovoNomeMateria.Text,
                 DataCadastro = Convert.ToDateTime(txt_DataCadastroMateriaBuscar.Text),
                 Situação = txt_SituacaoMateriaBuscar.Text
-
             };
-            var novaMatériaJson = JsonConvert.SerializeObject(novaMatéria);
-            StringContent content = new StringContent(novaMatériaJson, Encoding.UTF8, "application/json");
+            var novaMateriaJson = JsonConvert.SerializeObject(novaMateria);
+            StringContent content = new StringContent(novaMateriaJson, Encoding.UTF8, "application/json");
 
             var httpClient = new HttpClient();
             var URL = "https://localhost:44306/Materia/UpdateMateria";
             var resultRequest = httpClient.PutAsync($"{URL}?descricaoMateria={txt_DescricaoMateriaBuscar.Text}" +
-                $"&novoMateria={txt_NovoNomeMateria.Text}" +
-                $"&novaSituacao={txt_SituacaoMateriaBuscar.Text}" +
-                $"&novaData={Convert.ToDateTime(txt_DataCadastroMateriaBuscar.Text)}", content);
+                $"&novoMateria={novaMateria.Descrição}" +
+                $"&novaSituacao={novaMateria.Situação}" +
+                $"&novaData={novaMateria.DataCadastro}", content);
             resultRequest.Wait();
 
             var result = resultRequest.Result.Content.ReadAsStringAsync();

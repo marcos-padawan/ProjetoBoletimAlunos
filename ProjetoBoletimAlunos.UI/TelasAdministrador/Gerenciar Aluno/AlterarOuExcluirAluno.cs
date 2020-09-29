@@ -42,7 +42,6 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Aluno
             {
                 txt_CpfAlunoBuscar.Text = aluno.Cpf;
                 txt_NascimentoAlunoBuscar.Text = Convert.ToString(aluno.DataNascimento);
-                //txt_CursoAlunoBuscar.Text = aluno.Curso.NomeCurso;
             }
         }
         private void btn_ExcluirAluno_Click(object sender, EventArgs e)
@@ -58,7 +57,7 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Aluno
 
             var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
 
-            MessageBox.Show("Deu boa campeão!");
+            MessageBox.Show("Aluno Removido com Sucesso!");
 
             txt_NomeAlunoBuscar.Text = "";
             txt_SobrenomeAlunoBuscar.Text = "";
@@ -68,39 +67,46 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Aluno
 
         private void btn_AlterarAluno_Click(object sender, EventArgs e)
         {
-            Aluno novoAluno = new Aluno()
+            if (txt_CpfAlunoBuscar.Text.Length == 11)
             {
-                Nome = txt_NovoNome.Text,
-                DataNascimento = Convert.ToDateTime(txt_NascimentoAlunoBuscar.Text),
-                Sobrenome = txt_NovoSobrenome.Text,
-                Cpf = txt_CpfAlunoBuscar.Text
-            };
-            var novoalunoJson = JsonConvert.SerializeObject(novoAluno);
-            StringContent content = new StringContent(novoalunoJson, Encoding.UTF8, "application/json");
+                Aluno novoAluno = new Aluno()
+                {
+                    Nome = txt_NovoNome.Text,
+                    DataNascimento = Convert.ToDateTime(txt_NascimentoAlunoBuscar.Text),
+                    Sobrenome = txt_NovoSobrenome.Text,
+                    Cpf = txt_CpfAlunoBuscar.Text
+                };
+                var novoalunoJson = JsonConvert.SerializeObject(novoAluno);
+                StringContent content = new StringContent(novoalunoJson, Encoding.UTF8, "application/json");
 
-            var httpClient = new HttpClient();
-            var URL = "https://localhost:44306/Aluno/UpdateAluno";
-            var resultRequest = httpClient.PutAsync($"{URL}?nome={txt_NomeAlunoBuscar.Text}" +
-                $"&sobrenome={txt_SobrenomeAlunoBuscar.Text}" +
-                $"&novoNome={txt_NovoNome.Text}" +
-                $"&novoSobrenome={txt_NovoSobrenome.Text}" +
-                $"&novoCpf={txt_CpfAlunoBuscar.Text}" +
-                $"&novoNascimento={Convert.ToDateTime(txt_NascimentoAlunoBuscar.Text)}", content);
-            resultRequest.Wait();
+                var httpClient = new HttpClient();
+                var URL = "https://localhost:44306/Aluno/UpdateAluno";
+                var resultRequest = httpClient.PutAsync($"{URL}?nome={txt_NomeAlunoBuscar.Text}" +
+                    $"&sobrenome={txt_SobrenomeAlunoBuscar.Text}" +
+                    $"&novoNome={novoAluno.Nome}" +
+                    $"&novoSobrenome={novoAluno.Sobrenome}" +
+                    $"&novoCpf={novoAluno.Cpf}" +
+                    $"&novoNascimento={novoAluno.DataNascimento}", content);
+                resultRequest.Wait();
 
-            var result = resultRequest.Result.Content.ReadAsStringAsync();
-            result.Wait();
+                var result = resultRequest.Result.Content.ReadAsStringAsync();
+                result.Wait();
 
-            var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
+                var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
 
-            MessageBox.Show("Deu boa campeão!");
+                MessageBox.Show("Aluno alterado com Sucesso!");
 
-            txt_NovoSobrenome.Text = "";
-            txt_SobrenomeAlunoBuscar.Text = "";
-            txt_NovoNome.Text = "";
-            txt_NomeAlunoBuscar.Text = "";
-            txt_NascimentoAlunoBuscar.Text = "";
-            txt_CpfAlunoBuscar.Text = "";
+                txt_NovoSobrenome.Text = "";
+                txt_SobrenomeAlunoBuscar.Text = "";
+                txt_NovoNome.Text = "";
+                txt_NomeAlunoBuscar.Text = "";
+                txt_NascimentoAlunoBuscar.Text = "";
+                txt_CpfAlunoBuscar.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Favor inserir um CPF válido.");
+            }
         }
         private class Root
         {
