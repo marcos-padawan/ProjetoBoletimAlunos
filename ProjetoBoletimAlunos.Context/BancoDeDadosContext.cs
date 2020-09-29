@@ -50,6 +50,10 @@ namespace ProjetoBoletimAlunos.Context
             
             modelBuilder.Entity<MateriaAluno>()
             .HasKey(x => new { x.AlunoId, x.MateriaId });
+            
+            modelBuilder.Entity<AlunosCurso>()
+            .HasKey(x => new { x.AlunoId, x.CursoId });
+
         }
 
         public DbSet<Aluno> Alunos { get; set; }
@@ -58,5 +62,6 @@ namespace ProjetoBoletimAlunos.Context
         public DbSet<Notas> Notas { get; set; }
         public DbSet<MateriaAluno> MateriaAlunos { get; set; }
         public DbSet<CursoMateria> CursoMateria { get; set; }
+        public DbSet<AlunosCurso> AlunosCurso { get; set; }
     }
 }
