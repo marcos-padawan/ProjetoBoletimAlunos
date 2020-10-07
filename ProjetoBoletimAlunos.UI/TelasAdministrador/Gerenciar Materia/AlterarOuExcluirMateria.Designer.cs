@@ -41,13 +41,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txt_SituacaoMateriaBuscar = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_DataCadastroMateriaBuscar = new System.Windows.Forms.TextBox();
             this.btn_ExcluirMateria = new System.Windows.Forms.Button();
             this.btn_AlterarMateria = new System.Windows.Forms.Button();
             this.Btn_Sair = new System.Windows.Forms.Button();
             this.Btn_Voltar = new System.Windows.Forms.Button();
             this.txt_NovoNomeMateria = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.Cal_DataCadastro = new System.Windows.Forms.MonthCalendar();
             this.SuspendLayout();
             // 
             // label1
@@ -175,20 +175,11 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Data de Cadastro:";
             // 
-            // txt_DataCadastroMateriaBuscar
-            // 
-            this.txt_DataCadastroMateriaBuscar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_DataCadastroMateriaBuscar.Location = new System.Drawing.Point(32, 396);
-            this.txt_DataCadastroMateriaBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_DataCadastroMateriaBuscar.Name = "txt_DataCadastroMateriaBuscar";
-            this.txt_DataCadastroMateriaBuscar.Size = new System.Drawing.Size(253, 34);
-            this.txt_DataCadastroMateriaBuscar.TabIndex = 3;
-            // 
             // btn_ExcluirMateria
             // 
             this.btn_ExcluirMateria.BackColor = System.Drawing.Color.Tomato;
             this.btn_ExcluirMateria.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btn_ExcluirMateria.Location = new System.Drawing.Point(560, 305);
+            this.btn_ExcluirMateria.Location = new System.Drawing.Point(325, 436);
             this.btn_ExcluirMateria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ExcluirMateria.Name = "btn_ExcluirMateria";
             this.btn_ExcluirMateria.Size = new System.Drawing.Size(303, 43);
@@ -201,7 +192,7 @@
             // 
             this.btn_AlterarMateria.BackColor = System.Drawing.Color.Gold;
             this.btn_AlterarMateria.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btn_AlterarMateria.Location = new System.Drawing.Point(560, 367);
+            this.btn_AlterarMateria.Location = new System.Drawing.Point(325, 505);
             this.btn_AlterarMateria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_AlterarMateria.Name = "btn_AlterarMateria";
             this.btn_AlterarMateria.Size = new System.Drawing.Size(303, 43);
@@ -214,7 +205,7 @@
             // 
             this.Btn_Sair.BackColor = System.Drawing.Color.OrangeRed;
             this.Btn_Sair.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Btn_Sair.Location = new System.Drawing.Point(593, 491);
+            this.Btn_Sair.Location = new System.Drawing.Point(663, 490);
             this.Btn_Sair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Sair.Name = "Btn_Sair";
             this.Btn_Sair.Size = new System.Drawing.Size(241, 38);
@@ -227,7 +218,7 @@
             // 
             this.Btn_Voltar.BackColor = System.Drawing.Color.LightCoral;
             this.Btn_Voltar.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Btn_Voltar.Location = new System.Drawing.Point(593, 438);
+            this.Btn_Voltar.Location = new System.Drawing.Point(663, 438);
             this.Btn_Voltar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Voltar.Name = "Btn_Voltar";
             this.Btn_Voltar.Size = new System.Drawing.Size(241, 38);
@@ -239,7 +230,7 @@
             // txt_NovoNomeMateria
             // 
             this.txt_NovoNomeMateria.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txt_NovoNomeMateria.Location = new System.Drawing.Point(32, 480);
+            this.txt_NovoNomeMateria.Location = new System.Drawing.Point(474, 324);
             this.txt_NovoNomeMateria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_NovoNomeMateria.Name = "txt_NovoNomeMateria";
             this.txt_NovoNomeMateria.Size = new System.Drawing.Size(253, 34);
@@ -250,25 +241,34 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.label9.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label9.Location = new System.Drawing.Point(32, 447);
+            this.label9.Location = new System.Drawing.Point(474, 291);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(124, 28);
             this.label9.TabIndex = 18;
             this.label9.Text = "Novo Nome:";
+            // 
+            // Cal_DataCadastro
+            // 
+            this.Cal_DataCadastro.Location = new System.Drawing.Point(32, 416);
+            this.Cal_DataCadastro.MaxSelectionCount = 1;
+            this.Cal_DataCadastro.Name = "Cal_DataCadastro";
+            this.Cal_DataCadastro.ShowToday = false;
+            this.Cal_DataCadastro.ShowTodayCircle = false;
+            this.Cal_DataCadastro.TabIndex = 20;
             // 
             // Form_AlterarOuExcluirMateria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(916, 540);
+            this.ClientSize = new System.Drawing.Size(916, 666);
+            this.Controls.Add(this.Cal_DataCadastro);
             this.Controls.Add(this.txt_NovoNomeMateria);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.Btn_Sair);
             this.Controls.Add(this.Btn_Voltar);
             this.Controls.Add(this.btn_AlterarMateria);
             this.Controls.Add(this.btn_ExcluirMateria);
-            this.Controls.Add(this.txt_DataCadastroMateriaBuscar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txt_SituacaoMateriaBuscar);
             this.Controls.Add(this.label7);
@@ -302,12 +302,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_SituacaoMateriaBuscar;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_DataCadastroMateriaBuscar;
         private System.Windows.Forms.Button btn_ExcluirMateria;
         private System.Windows.Forms.Button btn_AlterarMateria;
         private System.Windows.Forms.Button Btn_Sair;
         private System.Windows.Forms.Button Btn_Voltar;
         private System.Windows.Forms.TextBox txt_NovoNomeMateria;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.MonthCalendar Cal_DataCadastro;
     }
 }

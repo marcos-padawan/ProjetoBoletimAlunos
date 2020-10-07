@@ -64,6 +64,15 @@ namespace ProjetoBoletimAlunos.Utilidades
                 meuBanco.SaveChanges();
             }
         }
+        public void AddAlunosCurso(AlunosCurso alunosCurso)
+        {
+            meuBanco = new BancoDeDadosContext();
+            using (meuBanco)
+            {
+                meuBanco.AlunosCurso.Add(alunosCurso);
+                meuBanco.SaveChanges();
+            }
+        }
         //-----LISTAR PESQUISA FILTRADA DO BANCO-------  READ
         public List<Notas> ListarNotasPorMateria(string nomeAluno, string sobrenomeAluno, string materia)
         {
@@ -169,6 +178,14 @@ namespace ProjetoBoletimAlunos.Utilidades
                 return meuBanco.CursoMateria.ToList();
             }
         }
+        public List<AlunosCurso> ListarTodosAlunosCurso()
+        {
+            meuBanco = new BancoDeDadosContext();
+            using (meuBanco)
+            {
+                return meuBanco.AlunosCurso.ToList();
+            }
+        }
 
         //-----ALTERAÇÃO DE ITENS DO BANCO-------  UPDATE
         public string AlterarMateria(string descricao, string novaDescricao, string novoStatus, DateTime novaData)
@@ -227,7 +244,7 @@ namespace ProjetoBoletimAlunos.Utilidades
                     return Message.Failure;
             }
         }
-        public string AlterarNotas(int idAluno, int idMateria, decimal novaNota)
+        public string AlterarNotas(int idAluno, int idMateria, double novaNota)
         {
             meuBanco = new BancoDeDadosContext();
             using (meuBanco)
@@ -236,7 +253,7 @@ namespace ProjetoBoletimAlunos.Utilidades
                                                             && q.MateriaId.Equals(idMateria));
                 if (nota != null)
                 {
-                    nota.Nota = novaNota;
+                    nota.Nota = Convert.ToDouble(novaNota);
                     meuBanco.SaveChanges();
                     return Message.Success;
                 }

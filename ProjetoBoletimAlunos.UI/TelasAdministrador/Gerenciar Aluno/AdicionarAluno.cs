@@ -30,8 +30,8 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Aluno
                     Cpf = txt_CpfAluno.Text,
                     CursoId = cursoId
                 };
-                var novaMatériaJson = JsonConvert.SerializeObject(novoAluno);
-                StringContent content = new StringContent(novaMatériaJson, Encoding.UTF8, "application/json");
+                var novoAlunoJson = JsonConvert.SerializeObject(novoAluno);
+                StringContent content = new StringContent(novoAlunoJson, Encoding.UTF8, "application/json");
 
                 var httpClient = new HttpClient();
                 var URL = "https://localhost:44306/Aluno/AddAluno";

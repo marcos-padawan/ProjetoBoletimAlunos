@@ -28,7 +28,7 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
             int.TryParse((Regex.Match(Cmb_NomeCompleto.Text, @"\d+").Value), out int alunoId);
             Notas novaNota = new Notas()
             {
-                Nota = Convert.ToDecimal(txt_NotaAluno.Text),
+                Nota = Convert.ToDouble(txt_NotaAluno.Text),
                 MateriaId = materiaId,
                 AlunoId = alunoId
             };

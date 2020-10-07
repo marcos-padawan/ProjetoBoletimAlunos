@@ -22,7 +22,7 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
                 Materia novaMatéria = new Materia()
                 {
                     Descrição = txt_NomeMateria.Text,
-                    DataCadastro = Convert.ToDateTime(txt_DataCadastroMateria.SelectionRange.Start.ToString()),
+                    DataCadastro = txt_DataCadastroMateria.SelectionRange.Start,
                     Situação = Cmb_SituacaoMateria.Text
 
                 };

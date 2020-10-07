@@ -7,8 +7,7 @@ namespace ProjetoBoletimAlunos.Context
     {
         public BancoDeDadosContext() { }
         
-        public BancoDeDadosContext(DbContextOptions<BancoDeDadosContext> options)
-            : base(options) { }
+        public BancoDeDadosContext(DbContextOptions<BancoDeDadosContext> options): base(options) { }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -17,11 +16,6 @@ namespace ProjetoBoletimAlunos.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(BancoDeDadosContext).Assembly);
-
-            //-------CHAVES PRIMÁRIAS------------
-
-            modelBuilder.Entity<MateriaAluno>()
-            .HasKey(q => new { q.AlunoId });
 
             //-------CHAVES ESTRANGEIRAS---------
 

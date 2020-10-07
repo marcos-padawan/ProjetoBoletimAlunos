@@ -14,7 +14,7 @@ namespace ProjetoBoletimAlunos.Controllers
     {
         [HttpPost]
         [Route("AddMateriaAluno")]
-        public ActionResult PostCurso(MateriaAluno materiaAluno)
+        public ActionResult PostMateriaAluno(MateriaAluno materiaAluno)
         {
             var result = new Result<MateriaAluno>();
             try
@@ -29,7 +29,7 @@ namespace ProjetoBoletimAlunos.Controllers
             catch (Exception ex)
             {
                 result.Error = true;
-                result.Message = Message.Failure + ex.Message;
+                result.Message = $"{Message.Failure} - {ex.Message}";
                 result.Status = System.Net.HttpStatusCode.InternalServerError;
 
                 return NotFound(result);

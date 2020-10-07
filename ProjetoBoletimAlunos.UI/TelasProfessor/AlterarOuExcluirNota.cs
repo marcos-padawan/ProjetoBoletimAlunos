@@ -2,14 +2,9 @@
 using ProjetoBoletimAlunos.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjetoBoletimAlunos.UI.TelasProfessor
@@ -59,7 +54,9 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
 
             Notas novaNota = new Notas()
             {
-                Nota = Convert.ToInt32(txt_NotaAlunoBuscar.Text)
+                AlunoId = alunoId,
+                MateriaId = materiaId,
+                Nota = Convert.ToDouble(txt_NotaAlunoBuscar.Text)
             };
             var novaNotaJson = JsonConvert.SerializeObject(novaNota);
             StringContent content = new StringContent(novaNotaJson, Encoding.UTF8, "application/json");
@@ -141,12 +138,10 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
         {
             this.Close();
         }
-
         private void Btn_Sair_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
-
         private class Root
         {
             public List<Aluno> Data { get; set; }
@@ -159,7 +154,5 @@ namespace ProjetoBoletimAlunos.UI.TelasProfessor
         {
             public List<Notas> Data { get; set; }
         }
-
-
     }
 }

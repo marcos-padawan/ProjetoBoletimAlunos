@@ -8,7 +8,7 @@ namespace ProjetoBoletimAlunos.Models
     public class Notas
     {
         public int Id { get; set; }         //PK
-        public decimal Nota { get; set; }
+        public double Nota { get; set; }
 
         public int AlunoId { get; set; }     //FK
         public int MateriaId { get; set; }   //FK

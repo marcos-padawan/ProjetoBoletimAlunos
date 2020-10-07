@@ -68,20 +68,20 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Curso
                 NomeCurso = txt_NovoNomecurso.Text,
                 Situação = txt_SituacaoCursoBusca.Text
             };
-            var novoCursoJson = JsonConvert.SerializeObject(novoCurso);
-            StringContent content = new StringContent(novoCursoJson, Encoding.UTF8, "application/json");
+            //var novoCursoJson = JsonConvert.SerializeObject(novoCurso);
+            //StringContent content = new StringContent(novoCursoJson, Encoding.UTF8, "application/json");
 
             var httpClient = new HttpClient();
             var URL = "https://localhost:44306/Curso/UpdateCurso";
             var resultRequest = httpClient.PutAsync($"{URL}?nomeCurso={txt_NomeCursoBusca.Text}" +
                 $"&novoNome={novoCurso.NomeCurso}" +
-                $"&novoStatus={novoCurso.Situação}", content);
+                $"&novoStatus={novoCurso.Situação}", null);
             resultRequest.Wait();
 
             var result = resultRequest.Result.Content.ReadAsStringAsync();
             result.Wait();
 
-            var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
+            //var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
 
             MessageBox.Show("Curso Alterado com Sucesso!!!");
 

@@ -119,6 +119,7 @@
             this.txt_NascimentoAluno.Location = new System.Drawing.Point(680, 74);
             this.txt_NascimentoAluno.Margin = new System.Windows.Forms.Padding(9, 7, 9, 7);
             this.txt_NascimentoAluno.MaxDate = new System.DateTime(2001, 12, 31, 0, 0, 0, 0);
+            this.txt_NascimentoAluno.MaxSelectionCount = 1;
             this.txt_NascimentoAluno.MinDate = new System.DateTime(1930, 1, 1, 0, 0, 0, 0);
             this.txt_NascimentoAluno.Name = "txt_NascimentoAluno";
             this.txt_NascimentoAluno.ShowToday = false;

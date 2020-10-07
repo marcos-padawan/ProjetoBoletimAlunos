@@ -99,7 +99,7 @@ namespace ProjetoBoletimAlunos.Controllers
 
         [HttpPut]
         [Route("UpdateNotas")]
-        public ActionResult UpdateNotas(int idAluno, int idMateria, decimal novaNota)
+        public ActionResult UpdateNotas(int idAluno, int idMateria, double novaNota)
         {
             var result = new Result<List<Notas>>();
             try

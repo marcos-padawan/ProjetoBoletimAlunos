@@ -2,6 +2,7 @@
 using ProjetoBoletimAlunos.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net.Http;
 using System.Text;
 using System.Windows.Forms;
@@ -30,7 +31,7 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
             foreach (var item in data)
             {
                 txt_SituacaoMateriaBuscar.Text = item.Situação;
-                txt_DataCadastroMateriaBuscar.Text = Convert.ToString(item.DataCadastro);
+                Cal_DataCadastro.SetSelectionRange(item.DataCadastro, item.DataCadastro);
             }
         }
 
@@ -50,38 +51,38 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Materia
 
             txt_SituacaoMateriaBuscar.Text = "";
             txt_DescricaoMateriaBuscar.Text = "";
-            txt_DataCadastroMateriaBuscar.Text = "";
+            
         }
-        
+
         private void btn_AlterarMateria_Click(object sender, EventArgs e)
         {
             Materia novaMateria = new Materia()
             {
                 Descrição = txt_NovoNomeMateria.Text,
-                DataCadastro = Convert.ToDateTime(txt_DataCadastroMateriaBuscar.Text),
+                DataCadastro = Cal_DataCadastro.SelectionRange.Start,
                 Situação = txt_SituacaoMateriaBuscar.Text
             };
-            var novaMateriaJson = JsonConvert.SerializeObject(novaMateria);
-            StringContent content = new StringContent(novaMateriaJson, Encoding.UTF8, "application/json");
+            //var novaMateriaJson = JsonConvert.SerializeObject(novaMateria);
+            //StringContent content = new StringContent(novaMateriaJson, Encoding.UTF8, "application/json");
 
             var httpClient = new HttpClient();
             var URL = "https://localhost:44306/Materia/UpdateMateria";
             var resultRequest = httpClient.PutAsync($"{URL}?descricaoMateria={txt_DescricaoMateriaBuscar.Text}" +
                 $"&novoMateria={novaMateria.Descrição}" +
                 $"&novaSituacao={novaMateria.Situação}" +
-                $"&novaData={novaMateria.DataCadastro}", content);
+                $"&novaData={novaMateria.DataCadastro}", null);
             resultRequest.Wait();
 
             var result = resultRequest.Result.Content.ReadAsStringAsync();
             result.Wait();
 
-            var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
+            // var data = JsonConvert.DeserializeObject<Root>(result.Result).Data;
 
             MessageBox.Show("Deu boa campeão!");
 
             txt_SituacaoMateriaBuscar.Text = "";
             txt_DescricaoMateriaBuscar.Text = "";
-            txt_DataCadastroMateriaBuscar.Text = "";
+            
             txt_NovoNomeMateria.Text = "";
         }
         private void Btn_Voltar_Click(object sender, EventArgs e)

@@ -86,7 +86,7 @@ namespace ProjetoBoletimAlunos.UI.TelasAdministrador.Gerenciar_Aluno
                     $"&novoNome={novoAluno.Nome}" +
                     $"&novoSobrenome={novoAluno.Sobrenome}" +
                     $"&novoCpf={novoAluno.Cpf}" +
-                    $"&novoNascimento={novoAluno.DataNascimento}", content);
+                    $"&novoNascimento={novoAluno.DataNascimento}", null);
                 resultRequest.Wait();
 
                 var result = resultRequest.Result.Content.ReadAsStringAsync();
